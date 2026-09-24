@@ -33,6 +33,19 @@ const ffmpegFilter = (name) => {
   } catch { return false; }
 };
 
+let npmPrefix = '';
+try {
+  const r = spawnSync(process.env.ComSpec || 'cmd.exe', ['/d', '/s', '/c', 'npm config get prefix'], { encoding: 'utf8' });
+  npmPrefix = (r.stdout || '').trim();
+} catch {}
+const npmHas = (cmd) => {
+  if (!npmPrefix) return false;
+  for (const ext of ['.cmd', '.ps1', '']) {
+    if (existsSync(join(npmPrefix, cmd + ext))) return true;
+  }
+  return false;
+};
+
 const capabilities = [
   {
     id: 'image-generation',
@@ -64,6 +77,27 @@ const capabilities = [
     label: 'Blender 5.2 无头建模/渲染（bpy，本地离线）',
     reachable: existsSync('D:/Program Files/Blender Foundation/blender.exe'),
     enable: 'winget install BlenderFoundation.Blender',
+  },
+  {
+    id: 'a11y-performance-audit',
+    label: '可访问性 + 性能审计（lighthouse / axe-cli，npm 全局）',
+    reachable: npmHas('lighthouse') && npmHas('axe'),
+    enable: 'npm i -g lighthouse axe-cli',
+  },
+  {
+    id: 'image-toolkit',
+    label: '图像工具箱（ImageMagick / sharp / svgo）',
+    reachable: existsSync('D:/Program Files/ImageMagick/magick.exe') || bin('magick', ['-version']) || npmHas('svgo'),
+    enable: 'winget install ImageMagick.ImageMagick；npm i -g svgo',
+  },
+  {
+    id: 'font-subsetting',
+    label: '中文字体子集化（fontTools，pyftsubset）',
+    reachable: (() => {
+      try { return spawnSync('python', ['-c', 'import fontTools, brotli'], { stdio: 'ignore' }).status === 0; }
+      catch { return false; }
+    })(),
+    enable: 'pip install fonttools brotli',
   },
   {
     id: 'background-removal',
