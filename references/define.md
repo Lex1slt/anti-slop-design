@@ -91,6 +91,8 @@ Three ways the loop ends — and only these:
 
 Each round:
 
+**Resuming a project**: read the score log first. The base is the last accepted snapshot; if the working copy has regressed below it (fewer sections/images/assets than the snapshot), restore that snapshot and mark the invalid rounds in the log before continuing.
+
 1. **Snapshot the current artifact into `versions/`** (e.g. `versions/r3-hero.html`) — every reviewed version is kept, nothing is overwritten. **Render the snapshot** (desktop full + hero + every width you claim to support) into `shots/`. The submission is **the snapshot plus its renders** — the source is the record, the render is the evidence.
 2. **Continue from the latest accepted version.** Each round edits the last accepted snapshot — never rewrite from scratch, never start from an empty file, and the new version must be at least as complete as the one it replaces (removals only when the critic ordered them).
 3. **Spawn a fresh-context subagent** (the Agent tool). Its prompt contains only: the full rubric, the snapshot's file path, the render paths, **the project root (it may Read anything under it — assets, fonts, styles, notes, earlier versions — to verify references and completeness)**, the output format, and the read-only fence. **No past scores or past critiques** — that prevents anchoring and people-pleasing.
