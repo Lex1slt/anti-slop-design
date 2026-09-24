@@ -40,7 +40,10 @@ elements: the question is never "is this pattern present?" but "was this
 pattern chosen or inherited?" A glow with a reason stays; a glow by muscle
 memory goes. Subtraction first, this second — they ask different questions.
 
-**Visual defaults** (the critic screens for these too):
+**Visual defaults** (the critic screens for these too). Two lists: the
+classic kit, and the newer clusters that generated design currently
+collapses into — a brief that pins one of these looks may use it; a brief
+that doesn't should not land there by accident:
 
 - [ ] purple-to-blue hero washes, glowing edges, gradient buttons
 - [ ] a row of three identical feature cards
@@ -54,6 +57,27 @@ memory goes. Subtraction first, this second — they ask different questions.
 - [ ] bespoke buttons that lose to the platform's own
 - [ ] spacing with no rhythm — every section the same height, nowhere to
       breathe
+- [ ] the all-rectangle page: every edge axis-aligned, zero curves,
+      diagonals, or overlaps — geometry by default, not by choice
+
+Newer clusters the whole field currently collapses into:
+
+- [ ] warm cream + high-contrast serif display + one terracotta/warm-clay
+      accent
+- [ ] near-black ground + a single acid-green or vermilion accent
+- [ ] the broadsheet costume: hairline rules, zero border-radius, dense
+      columns
+- [ ] the SaaS-card kit: identical rounded cards, one border-radius on
+      everything, the same soft shadow under each, gradient washes as
+      decoration
+- [ ] template chrome whatever the subject: tracked-out ALL-CAPS eyebrow
+      over every heading, meta strings joined by middle dots, labels built
+      as "WORD — fragment", near-black (#0B0B0B/#111) standing in for
+      black, a mono face for every small data label, "→" appended to every
+      link and button
+
+Each of these is legitimate for some brief. The tell is not the element —
+it is the element appearing regardless of subject.
 
 **Copy defaults** (a separate pass from the visual one):
 
@@ -85,6 +109,17 @@ Four strings carry the page: the **title**, the **primary action**, the
 **empty state**, the **error message**. Model drafts average out to mush
 exactly there — rewrite them by hand before shipping. "Lightly edited"
 does not count.
+
+Craft rules for those strings — and every string:
+
+- Words the end user uses, not words the system uses: a user manages
+  notifications, not webhook config;
+- Active voice, and the CTA says what happens when used: "Save changes",
+  not "Submit";
+- One action keeps one name through the whole flow — the button that says
+  "Publish" produces a toast that says "Published";
+- Errors state what happened and how to fix it, in the interface's voice —
+  no apologizing, no vagueness. An empty screen is an invitation to act.
 
 The test: read the line aloud. If you would not say it to a customer
 standing next to you, it does not ship.

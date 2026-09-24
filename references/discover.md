@@ -18,7 +18,12 @@ problem brief.
 
 - Work from scenes, not feature lists;
 - The brief — who, where, stuck on what — is the question every direction
-  card below has to answer.
+  card below has to answer;
+- **The subject is the palette.** A subject's industry, materials, and
+  vocabulary are where distinct visual choices come from — a toy for
+  8-year-olds and a financial dashboard should not share a palette, a
+  typeface, or a hero. Build with the subject's real content and its
+  world's most characteristic objects, words, and light.
 
 ## 2. The seed roll (entropy from outside the model)
 
@@ -108,6 +113,8 @@ Two habits:
 - Inspiration/era: from the roll or the brief
 - Palette: #hex ×3
 - Type mood: e.g. "vintage magazine headline", "terminal mono"
+- Formal language: rectilinear / curvilinear / diagonal / organic /
+  fragmented — declared, not defaulted
 - Layout metaphor: e.g. "newspaper front page", "instrument panel"
 - Signature element: one thing you'd remember it by (not a gradient/glow)
 - Risk: where this direction tends to break
@@ -119,7 +126,11 @@ Rules:
   reference with an explicit "avoid the palette, layout, and typefaces
   they already claim";
 - The name-cover test: if you cannot tell the cards apart, they are one
-  idea in costume — redo.
+  idea in costume — redo;
+- **The geometry spread**: the set must span at least three formal
+  languages (rectilinear / curvilinear / diagonal / organic / fragmented),
+  and the wild card takes the riskiest one. Five directions that are all
+  axis-aligned rectangles are one idea in five typefaces.
 
 User online: present the cards and let them pick. Autonomous: pick by the
 risk each card declares, write the reason down, move into Define.

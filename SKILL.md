@@ -82,6 +82,15 @@ Never skip it. Everything downstream inherits its quality.
   pick; it may not be absent.
 - **The share shot.** Every direction names the moment people screenshot.
   No share shot, no entry into Define.
+- **Ground it in the subject.** The subject's industry, materials, and
+  vocabulary are where distinct choices come from — a toy for 8-year-olds
+  and a financial dashboard should not share a palette, a typeface, or a
+  hero. Open the hero with the most characteristic thing in the subject's
+  world.
+- **Vary the formal language.** The axis-aligned rectangle grid is one
+  geometry among several — curvilinear, diagonal, organic, fragmented.
+  The card set must span at least three formal languages, and the wild
+  card takes the riskiest one.
 - **Device budget.** List the candidate *devices* — built mechanisms such
   as mounts, numbering systems, boards, magnifiers, seals. Keep at most 5
   (1 signature + 2 supporting + 2 optional), each answering a sentence from
@@ -98,10 +107,11 @@ Convergence, not grinding. The score is won at the front — a concept with a
 9 ceiling at a disciplined scope — and the rounds only close the distance.
 
 - **Concept ceiling gate (before the loop, at ~30–50% fidelity)**: one
-  question — *executed flawlessly, is this a 9?* Yes → freeze the device
-  list and start. No → back to Discover, another direction (at most twice,
-  then ship the best available). A 25-round loop is the signature of
-  polishing an 8-ceiling concept.
+  question — *executed flawlessly, is this a 9?* — plus the **sameness
+  test**: if this plan would look at home on any similar brief, it is not
+  done; revise the plan before building. No → back to Discover, another
+  direction (at most twice, then ship the best available). A 25-round loop
+  is the signature of polishing an 8-ceiling concept.
 - **One frozen rubric (6–9 items), originality included.** Freeze it before
   round 1; changing standards mid-loop restarts the loop explicitly.
 - **Pre-flight on every submission**: render the build first with
@@ -109,7 +119,8 @@ Convergence, not grinding. The score is won at the front — a concept with a
   unrendered HTML ships broken images and dead motion), then console
   clean, fonts truly loaded, every referenced asset on disk, completeness
   floor holds, no overflow, rubric self-scored, defaults/copy/subtraction
-  passes done. The critic is not QA.
+  passes done, and the unannounced floor: visible keyboard focus, reduced
+  motion respected, AA contrast. The critic is not QA.
 - **Loop**: snapshot into `versions/` + render → a fresh-context critic
   reads the snapshot, the renders, and anything else in the project
   (read-only) → returns per-item scores, the biggest gaps, and blocking
@@ -133,6 +144,16 @@ Convergence, not grinding. The score is won at the front — a concept with a
   every instance is either a justified choice or removed.
 - **Hand-written copy**: title, primary CTA, empty states, error messages —
   rewritten by hand; model drafts do not ship.
+
+## Tools — call them, don't re-invent them
+
+- `references/tools/render.mjs` — the renderer for every round and for
+  delivery (all widths, deterministic file names);
+- Image generation / image search — assets before CSS decoration;
+- Contrast, reduced-motion, and focus checks — scripted in pre-flight;
+- Whatever else the job needs, call it proactively instead of hand-rolling
+  it per project; if a needed tool doesn't exist, say so at the stopping
+  rule.
 
 ## Hard rules
 

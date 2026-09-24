@@ -40,7 +40,10 @@ debugging a single shot, the raw call it wraps is:
 not criteria. Landing-page example:
 
 1. Three seconds in, the page has said what this is and who it's for — and
-   the first look is striking, not merely tidy.
+   the first look is striking, not merely tidy, including at least one
+   compositional gesture the category's default page would not make (a
+   curve, a diagonal, an overlap, an organic shape). A pure axis-aligned
+   grid is fine only when the brief itself argues for it.
 2. Color reads as a decision — however many hues, applied with discipline.
    A single-accent palette is one good answer, not the only one.
 3. One signature element people will remember (not a gradient/glow), built
@@ -67,6 +70,9 @@ Run the battery before asking for judgment:
   still present unless removal was ordered.
 - **Completeness floor**: every section, image, and copy block the last
   accepted version had is still there — removals only by critic order.
+- **The unannounced floor**: visible keyboard focus, reduced motion
+  respected, AA contrast. Quality that announces itself is decoration;
+  quality that is simply there is the standard.
 - Console clean. Every font weight actually used is verifiably loaded
   (a "declared 400, bundled 600 only" mismatch is a real incident).
 - No horizontal overflow; interactive states reachable.

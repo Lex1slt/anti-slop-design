@@ -1,7 +1,7 @@
 # Taste Library — 从站点研究中蒸馏的手法武器库
 
 来源研究：`site-study-vallone.md`、`site-study-chronoswiss.md`、`site-study-offbrand.md`、`site-study-grair.md`、`site-study-rhine.md`、`site-study-family.md`、`site-study-cosmos.md`、`site-study-obys.md`、`site-study-igloo.md`、`site-study-exoape.md`（各含证据与弱点）。
-用法：Discover 阶段的野心式 brief 不必凭空发明——先翻这里，把"感觉"翻译成具体手法；每个手法都注明何时该用、何时不该。
+致谢：默认簇清单（第 2 节相关）与文案工艺部分借鉴 anthropics/claude-code 的 frontend-design skill（MIT）。用法：Discover 阶段的野心式 brief 不必凭空发明——先翻这里，把"感觉"翻译成具体手法；每个手法都注明何时该用、何时不该。
 
 ## 高端站的共同结论（先读这个）
 
