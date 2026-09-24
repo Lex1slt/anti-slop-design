@@ -117,12 +117,15 @@ they pick. Autonomous: pick by declared risk, write the reason, move on.
 Convergence, not grinding. The score is won at the front — a concept with a
 9 ceiling at a disciplined scope — and the rounds only close the distance.
 
-- **Concept ceiling gate (before the loop, at ~30–50% fidelity)**: one
-  question — *executed flawlessly, is this a 9?* — plus the **sameness
-  test**: if this plan would look at home on any similar brief, it is not
-  done; revise the plan before building. No → back to Discover, another
-  direction (at most twice, then ship the best available). A 25-round loop
-  is the signature of polishing an 8-ceiling concept.
+- **Concept ceiling gate (before the loop, at ~30–50% fidelity)**: probe
+  the machine's enrichment capabilities first
+  (`references/tools/capabilities.mjs`), then ask one question —
+  *executed flawlessly with what is actually reachable, is this a 9?* —
+  plus the **sameness test**: if this plan would look at home on any
+  similar brief, it is not done; revise the plan before building. No →
+  back to Discover, another direction (at most twice, then ship the best
+  available). A 25-round loop is the signature of polishing an 8-ceiling
+  concept.
 - **SPAs and living products: the evidence harness is the first Define
   deliverable** — mocked network, a state driver for every reviewed
   state, final-state override, and recorded platform limits (render
@@ -184,6 +187,9 @@ stack (Vue, React, Svelte, Astro, Next, plain HTML, slides, posters) is **a
 renderable URL or file** — framework recipes live in
 `references/define.md`.
 
+- `references/tools/capabilities.mjs` — probe which enrichment
+  capabilities (image/video/3D generation, super-resolution, keying) are
+  actually enabled before the concept gate;
 - `references/tools/render.mjs` — the renderer for every round and for
   delivery (all widths, deterministic file names, `--gpu` for WebGL-heavy
   pages);
