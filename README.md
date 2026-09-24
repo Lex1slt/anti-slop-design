@@ -47,6 +47,7 @@ anti-slop-design/
 │   ├── define.md         # critic loop & prompt template, model split, image/shader/video enrichment, screenshot command
 │   ├── deliver.md        # subtraction pass, AI-tells double pass, hand-written copy, delivery checklist
 │   ├── taste-library.md  # distilled moves from 10 studied sites (when to use + sources)
+│   ├── techniques.md     # the technique map: scroll narrative, motion, layout, styles, 3D/immersive, APIs, combos
 │   └── site-study-*.md   # the full site studies: vallone, chronoswiss, offbrand, grair, rhine, family, cosmos, obys, igloo, exoape
 └── .gitignore
 ```

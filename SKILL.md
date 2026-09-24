@@ -56,6 +56,9 @@ the stage starts:
   copy, the delivery checklist
 - `references/taste-library.md` — concrete moves distilled from studied
   sites, each with when-to-use and known failure modes
+- `references/techniques.md` — the full technique map (scroll narrative,
+  motion, layout, styles, 3D/immersive, APIs, combos) for direction cards,
+  wild cards, and LEAP rounds
 
 ## Stage 1 — Discover
 
@@ -74,12 +77,15 @@ Never skip it. Everything downstream inherits its quality.
 - **Audit the category, then break it.** List what these sites always do,
   forbid 2–3 of those habits, and make sure one direction breaks one of
   them.
-- **Mine the taste library.** `references/taste-library.md` translates
-  "make it feel expensive / alive / radical" into sourced, concrete moves —
-  at most 2–3 per page.
+- **Mine the taste library and the technique map.**
+  `references/taste-library.md` translates "make it feel expensive / alive
+  / radical" into sourced, concrete moves — at most 2–3 per page;
+  `references/techniques.md` is the full menu when the wild card or the
+  formal language needs a bolder pick.
 - **The wild card.** Always produce one direction that breaks a forbidden
   convention or steals its structure from another medium. It may lose the
-  pick; it may not be absent.
+  pick; it may not be absent. Pull risky styles from
+  `references/techniques.md` (◆-marked) — with a concept argument.
 - **The share shot.** Every direction names the moment people screenshot.
   No share shot, no entry into Define.
 - **Ground it in the subject.** The subject's industry, materials, and

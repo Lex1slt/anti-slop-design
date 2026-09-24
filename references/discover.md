@@ -119,7 +119,8 @@ Two habits:
 - Palette: #hex ×3
 - Type mood: e.g. "vintage magazine headline", "terminal mono"
 - Formal language: rectilinear / curvilinear / diagonal / organic /
-  fragmented — declared, not defaulted
+  fragmented — declared, not defaulted; pick from the map in
+  `techniques.md` §3–4
 - Layout metaphor: e.g. "newspaper front page", "instrument panel"
 - Signature element: one thing you'd remember it by (not a gradient/glow)
 - Risk: where this direction tends to break
@@ -153,7 +154,8 @@ Force the leaps:
 2. **The wild card** — one extra direction that breaks a forbidden habit,
    pushes an element to an extreme, or steals its structure from another
    medium (album cover, magazine spread, game HUD, boarding pass,
-   architectural plan). It may lose the pick; it may not be absent.
+   architectural plan). It may lose the pick; it may not be absent. The
+   technique map (`techniques.md` §7 combos, ◆ styles) is the menu.
 3. **The share shot** — name the moment people screenshot, and why it
    deserves it. A direction with no share shot does not enter Define.
 4. **Cross-pollination** — the taste library is a floor, not a boundary:

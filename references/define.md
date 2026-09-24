@@ -224,6 +224,10 @@ stop and deliver.
 Every LEAP round also answers: **which device did this make obsolete?**
 If the answer is none, it was a tweak wearing a costume — redo it.
 
+Concrete moves can also come straight from `references/techniques.md`
+(scroll narrative, kinetic typography, blend modes, ◆ styles) — a
+cross-class combo counts as one LEAP.
+
 Critic prompt (frozen; identical every round):
 
 ```

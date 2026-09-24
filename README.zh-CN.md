@@ -45,6 +45,7 @@ anti-slop-design/
 │   ├── define.md         # critic 循环与 prompt 模板、模型分工、生图/shader/视频素材、截图命令
 │   ├── deliver.md        # 减法 pass、AI tells 双 pass、手写文案、交付 checklist
 │   ├── taste-library.md  # 十个站点研究蒸馏出的手法武器库（何时用 + 来源）
+│   ├── techniques.md     # 技法总图：滚动叙事、动效、布局、风格、3D/沉浸、API、组合拳
 │   └── site-study-*.md   # 十个站点的完整研究：vallone、chronoswiss、offbrand、grair、rhine、family、cosmos、obys、igloo、exoape
 └── .gitignore
 ```
