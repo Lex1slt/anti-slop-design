@@ -31,7 +31,7 @@ LLM 做设计时，每个决策都选"最可能让所有人满意"的解，结�
 
 `/world-class-designer，（项目需求），评审子代理用什么模型`
 
-> /world-class-designer，做一个精品咖啡品牌的落地页，评审子代理用 mimo v2.6 pro
+> /world-class-designer，做一个精品咖啡品牌的落地页，评审子代理用 GPT6-Astra
 
 评审模型可省略——省略时由 agent 选最强的设计模型。
 
