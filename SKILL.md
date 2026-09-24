@@ -1,0 +1,80 @@
+---
+name: world-class-designer
+description: A three-stage process (Discover → Define → Deliver) that turns AI into a world-class designer — stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI. Use whenever the user asks you to "design / beautify / make" any visual artifact, or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
+---
+
+# World-Class Designer — three stages that turn AI into a world-class designer
+
+## Why
+
+Left to its defaults, AI design is slop: purple gradients, Inter, rounded-card grids. The root cause is not a lack of capability:
+
+1. **Prediction instinct** — an LLM is a next-token predictor tuned on human feedback; at every design decision it fills in the token "most likely to please everyone", which adds up to committee-grade mediocrity;
+2. **Great design is the opposite** — it starts from feeling, aims for emotional resonance, and breaks rules with memorable, unexpected choices — exactly what the model avoids by default;
+3. **It only adds, never subtracts** — models rarely delete elements; piling up is mediocrity;
+4. **It finishes too early** — it loves to declare "done!" at 6/10.
+
+The countermeasures are exactly three: **inject randomness from outside the model** (seed strings / named variation dimensions); **hand quality judgment to a critic agent with no baggage**; **premium comes from deleting, not adding**.
+
+This skill chases the ceiling: **quality is the only stop condition**. Token cost, round count, and wall-clock time are explicitly not constraints — the loop runs as long as the critic finds real gaps.
+
+The process skeleton is borrowed from the Double Diamond — diverge on problems → focus one problem → diverge on solutions → focus and deliver — translated into the three stages below.
+
+## Process overview
+
+| Stage | Goal | Effort | Key moves |
+|---|---|---|---|
+| 1. Discover | Breadth: fix the problem, then explore the possibility space | ~15% | converge problem hypotheses → seed string / named dimensions → 3–4 direction cards |
+| 2. Define | Depth: push the chosen direction to 9/10 | ~70% | scoring rubric → fresh-context critic loop → enrich with generated images / shaders / video |
+| 3. Deliver | Restraint: subtraction and de-AI-ing | ~15% | subtraction pass → AI-tells double pass → hand-written key copy |
+
+Read detailed templates and commands on demand:
+
+- `references/discover.md` — problem framing, seed strings, ambitious briefs, intent-first, direction-card format
+- `references/define.md` — critic loop and prompt template, model split, image/shader/video enrichment, local screenshot command
+- `references/deliver.md` — subtraction pass, AI-tells double pass, hand-written copy, delivery checklist
+- `references/taste-library.md` — distilled moves from studied sites (vallone, chronoswiss, offbrand, grair, rhine): what each is for, when to use it, plus the full site studies
+
+## Stage 1 — Discover (mandatory, never skip)
+
+- **Fix the problem first**: list several "problems worth solving" hypotheses from real user scenarios, then converge. Never assume your first reaction is the need.
+- **Roll a seed string (or name the variation dimensions) before diverging**. Never go straight to "design me X" — that returns the average; words like "unique, random, unconventional" don't work either.
+- **Intent first**: have the model list design intents broad-not-deep, filter and iterate on your taste; once the intent is formed, start building directly — don't ask the model to rewrite it into a full prompt first. For ambitious briefs, mine `references/taste-library.md` first: translate "feel" into sourced, concrete moves — at most 2–3 per page.
+- **Wild card + conventions audit**: audit what this category always looks like and explicitly forbid 2–3 of those conventions; always produce one wild-card direction that breaks one of them (it may lose, but it must exist). Every direction must name its **share shot** — the moment people screenshot. A design with no share shot doesn't enter Define.
+- **Produce exactly 3–4 direction cards** that differ significantly (not one idea recolored); generate them one at a time, each one explicitly avoiding what the previous cards already occupy.
+- User online: present the cards and let them pick. Autonomous mode: pick one by the card's own risk assessment, note the reason, and continue.
+
+## Stage 2 — Define (the bulk of the work)
+
+- **Concept gate at 50% fidelity**: the first critique happens on the half-polished direction (concept + structure + signature moment only), so structural objections land before any polish.
+- **Executor pre-flight gate**: before every submission run the whole known-checks battery — console clean, fonts truly loaded, links/assets resolve, no overflow, rubric self-scored, AI-tells/copy/subtraction passes done. The critic is not QA; known failure modes never cost a round.
+- **Write an objective scoring rubric (6–9 items) — originality & memorability included — and freeze it before round 1**. Changing standards mid-loop restarts the loop explicitly.
+- Loop: snapshot the artifact into `versions/` and submit the file itself → a **fresh-context** critic subagent reads it and finds the biggest gaps against "how would a top studio execute this aesthetic" → fix substantively per its feedback. No per-round screenshots — render once at delivery, or when the critic asks to see a render.
+- **Triage**: the critic classifies issues BLOCKING (≤3) / MAJOR / MINOR-batch; the executor clears all three classes in one pass — a minor never consumes a round on its own.
+- **Dual critics in parallel** (cost no object): one Craft lens + one Concept lens per round, blocking lists merged into a single fix pass.
+- **Stop condition: the critic independently scores ≥ 9/10 against a top-studio bar**. Never put the threshold into the critic prompt (keep its scoring objective); use the same critic prompt every round.
+- **The critic escalates, it doesn't nibble**: every round's feedback leads with the biggest structural/expressive move (composition / motion / emotion), then details. Screen artifacts need a choreographed signature moment and pointer-reactive behavior — a flawless but static page caps at 8, and flawless-but-familiar caps at 8 too: craft cannot buy originality.
+- Critic feedback must be **directly executable** (pseudo-code level).
+- **Model split, pinned explicitly**: a premium high-taste model is the critic, a cost-effective workhorse executes its pseudo-code-level notes. The critic's taste is the ceiling of the whole loop — never downgrade it to save cost; where the harness allows per-subagent model selection, pin both roles instead of letting them inherit the session model.
+- Enrich with three kinds of assets: generated images, shaders/3D, video animation (chroma-key loops, keyframe interpolation).
+
+## Stage 3 — Deliver
+
+- **Subtraction pass**: for every element ask "does the design get worse without it?" — no concrete reason, delete. Bounded by comprehension cost: if an icon isn't self-explanatory, add a text label or hover hint instead of deleting.
+- **AI-tells double pass**: visual and copy fingerprints, checked in two separate passes. The list names habits to interrogate, not banned elements — every pattern that appears must be a deliberate, top-studio-grade choice; the default use is the tell, not the element.
+- **Hand-write the key copy**: title, primary CTA, empty states, error messages — rewrite these yourself; don't ship the model's draft.
+
+## Local toolchain
+
+- **Screenshots**: Edge headless (silent, windowless, quiet-friendly), command in references/define.md.
+- **Real imagery**: image-generation API first (when a key exists); else mcp image-search for real photos/textures; else the restrained-typography route.
+- **Quiet operation**: fully silent, no pop-up windows, low load — never disturb.
+
+## Hard rules
+
+1. The three stages run in order; never jump from Discover straight to Deliver.
+2. When the critic scores below 9/10, the next round must change something substantive (layout / color / information hierarchy), not tweak copy.
+3. The critic gets a fresh context every round and never sees past scores or conversation (prevents anchoring and people-pleasing).
+4. Randomness always comes from outside the model (seed strings or named variation dimensions) — never from the model "freestyling".
+5. Concrete instructions only; grand adjectives are not instructions ("more modern", "minimal", "premium" don't count).
+6. In autonomous mode, run the full loop before delivering; never ask "want me to keep optimizing?".

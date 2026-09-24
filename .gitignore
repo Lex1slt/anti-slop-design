@@ -1,0 +1,13 @@
+# 本机插件元数据（自动再生，不入库）
+.mimosa/
+.v2c/
+.video_agent/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# 本地研究证据（截图/抓取），不入库
+.vallone/
+.study/
+.zcodeignore
