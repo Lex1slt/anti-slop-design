@@ -482,10 +482,12 @@ edges at 2× zoom. In-situ "life" photography is the other legitimate mode
   Apple-grade product shot and any transparent overlay;
 - **Green-screen keying** for video loops (solid-background generation →
   key → transparent asset);
-- **Super-resolution / restoration**: 2–4× upscale and denoise
-  (Real-ESRGAN-class or an API) on any image that appears large — hero,
-  specimen plate, product shot. A low-res find is upscaled *before* it
-  goes on the page, never after;
+- **Super-resolution / restoration**: 2–4× upscale and denoise on any
+  image that appears large — hero, specimen plate, product shot. A
+  low-res find is upscaled *before* it goes on the page, never after.
+  Local binary: `D:/tools/realesrgan/realesrgan-ncnn-vulkan.exe -i in.png
+  -o out.png -s 2 -n realesrgan-x4plus` (models bundled); API fallback:
+  Replicate / fal.ai when a key exists;
 - **Inpainting/outpainting** to extend a generated scene past the crop or
   remove an element the composition doesn't need.
 

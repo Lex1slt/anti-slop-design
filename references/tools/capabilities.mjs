@@ -69,7 +69,7 @@ const capabilities = [
   {
     id: 'super-resolution',
     label: '图像超清 / 修复（2–4× 上采样）',
-    reachable: bin('realesrgan') || bin('upscayl') || key('REPLICATE_API_TOKEN') || key('FAL_KEY'),
+    reachable: existsSync('D:/tools/realesrgan/realesrgan-ncnn-vulkan.exe') || bin('realesrgan') || bin('upscayl') || key('REPLICATE_API_TOKEN') || key('FAL_KEY'),
     enable: '安装 realesrgan/upscayl，或 export REPLICATE_API_TOKEN / FAL_KEY',
   },
   {
