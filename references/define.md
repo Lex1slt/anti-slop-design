@@ -285,12 +285,17 @@ apply pseudo-code precisely, which a cheap fast model does well.
 3. Watch the delta: a round of sub-2px fixes must be followed by a
    structural move; cosmetic rounds never cross 8→9.
 
-## Asset enrichment (as available)
+## The capability toolbox (reach for it proactively)
 
 Code gives you text and simple shapes — gradients, blobs, and patterns are
 precisely the default-output hot zone. One strong image plus a few words
-beats a page of CSS decoration. Add assets by need, then back into the
-critic loop.
+beats a page of CSS decoration. So the rule for this stage: **when code
+alone will look worse than the right tool's output, use the tool — without
+waiting to be asked.** The capabilities below are standard equipment; each
+names when to reach for it and the pipeline to run. At the concept gate,
+judge the ceiling against the capabilities actually reachable on this
+machine (keys, CLIs) — a missing key changes what "flawless" can mean, and
+that is said out loud before round 1.
 
 ### Generated images (first choice)
 
@@ -326,6 +331,46 @@ background, studio softbox lighting, ultra sharp, centered, commercial
 catalog style`) → cut out with a removal model (alpha matting on) → check
 edges at 2× zoom. In-situ "life" photography is the other legitimate mode
 — for heroes and mood; never mix the two modes inside one product set.
+
+### Cutouts, keying, super-resolution
+
+- **Background removal / cutout**: rembg-class matting for complex edges,
+  chroma key for solid backgrounds (ffmpeg `colorkey`/`chromakey`), a
+  background-removal API when available. Reach for it in every
+  Apple-grade product shot and any transparent overlay;
+- **Green-screen keying** for video loops (solid-background generation →
+  key → transparent asset);
+- **Super-resolution / restoration**: 2–4× upscale and denoise
+  (Real-ESRGAN-class or an API) on any image that appears large — hero,
+  specimen plate, product shot. A low-res find is upscaled *before* it
+  goes on the page, never after;
+- **Inpainting/outpainting** to extend a generated scene past the crop or
+  remove an element the composition doesn't need.
+
+### 3D — procedural, modeled, generated
+
+- Procedural Three.js for instruments, boards, and objects the concept
+  can define in geometry (materials and lighting carry the realism);
+- Text-to-3D / image-to-3D APIs for real models when the object is
+  complex (export glTF);
+- Turntable and orbit renders baked to frames or video when realtime 3D
+  is not needed.
+
+Reach for 3D when the product or a signature device is a physical object;
+a flat page describing a solid object is a missed ceiling.
+
+### Video and motion
+
+- Text-to-video / image-to-video for hero moments and transitions (an
+  aggregator key lets the agent pick the current best model);
+- Keyframe interpolation for scroll-scrubbed one-take journeys;
+- Programmatic motion graphics: Lottie/JSON animations, CSS
+  scroll-driven sequences, choreographed load assembly — for everything
+  that is motion *of the interface itself*.
+
+Reach for these when the concept involves physics or materials code can't
+fake (cloth, liquid, glass, refraction) or a journey longer than three
+states.
 
 ### Shaders / 3D
 
