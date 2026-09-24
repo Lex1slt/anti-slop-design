@@ -4,7 +4,7 @@
 
 A three-stage process — **Discover → Define → Deliver** — that turns AI into a world-class designer: stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI.
 
-A Claude Code agent skill built to fight the "average" of AI-generated design — purple gradients, rounded-card grids, Inter, filler copy.
+An agent skill built to fight the "average" of AI-generated design — purple gradients, rounded-card grids, Inter, filler copy. Works with any AI coding agent that supports the SKILL.md convention.
 
 ## The problem it solves
 
@@ -16,7 +16,7 @@ When an LLM designs, every decision picks the solution "most likely to please ev
 
 ## Install
 
-Copy the whole folder into your Claude Code skills directory:
+Copy the whole folder into your agent's skills directory (the `~/.claude/skills/` layout below is the convention most agents follow):
 
 - macOS / Linux: `~/.claude/skills/world-class-designer/`
 - Windows: `%USERPROFILE%\.claude\skills\world-class-designer\`

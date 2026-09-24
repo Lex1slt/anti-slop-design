@@ -4,7 +4,7 @@
 
 三阶段流程（Discover → Define → Deliver）把 AI 做成世界级设计师：产出惊艳、不落俗套的网页、落地页、海报、社交卡片、幻灯片与 UI。
 
-一个 Claude Code Agent Skill，专门对抗 AI 生成设计的"平均值"——蓝紫渐变、圆角卡片阵列、Inter 字体、万金油文案。
+一个 Agent Skill，专门对抗 AI 生成设计的"平均值"——蓝紫渐变、圆角卡片阵列、Inter 字体、万金油文案。兼容一切支持 SKILL.md 约定的 AI 编码 agent。
 
 ## 它解决什么问题
 
@@ -16,7 +16,7 @@ LLM 做设计时，每个决策都选"最可能让所有人满意"的解，结�
 
 ## 安装
 
-把整个文件夹复制到 Claude Code 的 skills 目录：
+把整个文件夹复制到你所用 agent 的 skills 目录（`~/.claude/skills/` 是多数 agent 通用的约定路径）：
 
 - macOS / Linux：`~/.claude/skills/world-class-designer/`
 - Windows：`%USERPROFILE%\.claude\skills\world-class-designer\`
