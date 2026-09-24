@@ -314,13 +314,22 @@ Rules:
   spacing rhythm, and whether the signature element actually lands.
 - Be severe by default. Vague notes are useless notes: every comment
   names a place and a change a builder could apply verbatim.
+- NO sub-2px nits. If your entire blocking list is sub-2px adjustments
+  (spacing nudges, hairline weight, pixel shims), you have failed as a
+  reviewer — the design's problems are structural, not cosmetic. Say what
+  is structurally wrong or stop. Pixel-level polish is the builder's job
+  and is already covered by the pre-flight checklist.
 - The device set is frozen. Ask for a new element only by naming the cut
   that pays for it — a demand without a cut is not a finding.
 - A 9 requires one sentence: what here will still be remembered tomorrow.
 
 If overall < 9: blocking issues, biggest structural move first, each
 located, classified BLOCKING / MAJOR / MINOR — written so a builder can
-apply them without taste.
+apply them without taste. Classify the round itself as LEAP (structural /
+expressive move), FIX (completion), or FAILED-LEAP (a bold move that did
+not land — name what was missing from the execution). A round classified
+TWEAK (sub-2px only) does not count toward the loop and must be redone as
+a structural move.
 ```
 
 The "9 means done" threshold lives in this document, never in that prompt.
