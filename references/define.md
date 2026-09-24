@@ -96,8 +96,10 @@ Run the battery before asking for judgment:
   respected, AA contrast. Quality that announces itself is decoration;
   quality that is simply there is the standard.
 - **Evidence pack**: renders at every supported width; a sequence strip of
-  the load choreography (`render.mjs --seq 300,800,1800,4000`); state
-  renders (hover, error, empty) where the piece has them; and a
+  the load choreography (`render.mjs --seq 300,800,1800,4000`); for
+  scroll-driven pieces, captures at several progress points
+  (`?p=0 / 0.25 / 0.5 / 0.75 / 1`); state renders (hover, error, empty)
+  where the piece has them; and a
   **calibration set** — one baseline render of the same brief produced
   with a deliberately plain prompt (kept once per project), plus 2–3
   award-tier references of the same genre (image search). The critic
@@ -131,6 +133,9 @@ first Define deliverable** — before the first review round:
   `?final=1` flag, so renders capture the settled composition instead of
   frame zero; rAF-driven counters get deterministic values under a
   `window.__HARNESS__` flag;
+- **Scroll progress pin** (`?p=0.35`): scroll-driven artifacts pin their
+  journey to a query param, so a static capture shows any point of the
+  take — this is how scrollytelling becomes reviewable at all;
 - **Known platform limits are recorded here too**, with their standard
   workarounds: Windows headless cannot open windows below ~494px wide —
   390-width captures need an iframe shim (outer window ≥494, inner iframe
