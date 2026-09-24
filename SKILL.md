@@ -123,6 +123,10 @@ Convergence, not grinding. The score is won at the front — a concept with a
   done; revise the plan before building. No → back to Discover, another
   direction (at most twice, then ship the best available). A 25-round loop
   is the signature of polishing an 8-ceiling concept.
+- **SPAs and living products: the evidence harness is the first Define
+  deliverable** — mocked network, a state driver for every reviewed
+  state, final-state override, and recorded platform limits (render
+  environment findings are tooling findings, not design defects).
 - **One frozen rubric (6–9 items), originality included.** Freeze it before
   round 1; changing standards mid-loop restarts the loop explicitly.
 - **Pre-flight on every submission**: render the build first with

@@ -116,6 +116,34 @@ A submission that skipped pre-flight wastes a review. The critic exists
 for the *unknown* problems; a known failure class recurring is an executor
 failure and goes on the delivery record.
 
+## The evidence harness (SPAs and living products)
+
+A single static HTML file renders itself; a React/Vue SPA backed by an
+API does not. When the artifact is an SPA, **the evidence harness is the
+first Define deliverable** — before the first review round:
+
+- **Network mocked**: every fetch/XHR the reviewed states depend on is
+  mocked with fixture data, so the review render needs no live backend;
+- **State driver**: a documented way to put the app into each reviewed
+  state — routes, form submit/error, drag-and-drop via synthetic events,
+  a run button;
+- **Final-state override**: animation timelines compressed to ~1ms or an
+  `?final=1` flag, so renders capture the settled composition instead of
+  frame zero; rAF-driven counters get deterministic values under a
+  `window.__HARNESS__` flag;
+- **Known platform limits are recorded here too**, with their standard
+  workarounds: Windows headless cannot open windows below ~494px wide —
+  390-width captures need an iframe shim (outer window ≥494, inner iframe
+  at target width). A "390 is clipped" finding from an unshimmed capture
+  is a **tooling finding**: recorded as such, it does not consume the
+  round and does not count as a design defect.
+
+The harness is project-specific by nature; the protocol requires its
+existence and its coverage (every reviewed state reachable), not any
+particular implementation.
+
+## The concept ceiling gate (before the loop)
+
 ## The concept ceiling gate (before the loop)
 
 One question, asked when the direction is fixed and the piece is only
@@ -150,10 +178,14 @@ Three ways the loop ends. None of them lowers the bar; the bar is the same
 in all three.
 
 1. **≥ 9/10** from the critic at frozen scope — the primary exit.
-2. **Plateau** — two consecutive rounds at the same overall score whose
-   findings contain no structural items (instrument-level nits only).
-   Stop, deliver, write the residual report. When the review itself says
-   "the gap is execution bugs, not ambition", that is this rule firing.
+2. **Plateau** — two consecutive rounds whose blocking set is empty or
+   unchanged, whose findings add no structural items (instrument-level
+   nits only), and whose per-item scores moved only within noise
+   (±0.2 at 0.5 granularity). Score jitter is not signal: the plateau
+   reads the **severity distribution and the do-not-regress list**, not
+   the mean. Stop, deliver, write the residual report. When the review
+   itself says "the gap is execution bugs, not ambition", that is this
+   rule firing.
 3. **Hard cap: 8 rounds** — stop, deliver the best-scoring snapshot, write
    the residual report. One exception, exactly once: if the final round
    applied critic-ordered blocking fixes, run **one verification round**
@@ -320,6 +352,28 @@ Two consecutive MINOR-only rounds end the loop: either the piece is at ≥9,
 or the reviewer has stopped finding real gaps. Deliver with the residual
 report; do not spend a third round on the same class.
 
+### Finding verification (before execution)
+
+Numeric, overlap, and geometry claims are verified **before work starts**:
+the executor reproduces the claim against the fixture (pixel zoom,
+arithmetic, measured layout) and only then implements. A finding that
+fails verification is **recorded with its refutation** in the score log,
+does not trigger rework, and does not count toward the round. This is not
+defiance — an unverified misread finding costs the same round as a real
+one.
+
+### Rulings — institutional memory across rounds
+
+Fresh-context amnesia has a price: reviewer A can order an element in
+round N and reviewer B can call it a defect in round N+1. The executor
+maintains **rulings.md** — one line per settled decision: the order, the
+round that produced it, and the evidence. The critic brief adds one line:
+*"Decisions recorded in rulings.md are precedents, not drift — challenge
+them only with new evidence."* The executor may not write self-serving
+rulings: every entry cites the ordering round and the reviewer order that
+produced it. Rubric amendments follow the same path — factual corrections
+and orderings are logged; loosening a threshold requires the user.
+
 ### Two critics, one pass (optional)
 
 Craft lens and Concept lens, in parallel, merged into a single fix list.
@@ -345,11 +399,12 @@ apply pseudo-code precisely, which a cheap fast model does well.
 - This is why notes must be pseudo-code concrete — any builder can then
   apply them.
 - **Critic precondition**: if no top-tier design model can be pinned, say
-  so before round 1 and stop by the **plateau rule**, not the 9-threshold.
-  A same-tier reviewer cannot certify "immaculate"; it compensates by
-  finding ever-finer defects and demanding ever-more ambition, which grows
-  scope instead of convergence. Its escalation ideas go to `v2-list.md`,
-  not into the fix batch.
+  so before round 1, declare the **effective target: 8.5 at frozen scope**
+  in the score log, and stop by the **plateau rule** — not the
+  9-threshold. A same-tier reviewer cannot certify "immaculate"; it
+  compensates by finding ever-finer defects and demanding ever-more
+  ambition, which grows scope instead of convergence. Its escalation
+  ideas go to `v2-list.md`, not into the fix batch.
 - On single-model setups the roles collapse into one model — but fresh
   context and the frozen rubric are not optional; without them even the
   best reviewer degrades.
