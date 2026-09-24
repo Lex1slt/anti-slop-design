@@ -211,7 +211,10 @@ baggage — and the reviewer never learns what earlier reviewers said.
 Each round:
 
 1. Snapshot the artifact into `versions/`; render it. The submission is
-   the snapshot plus its renders.
+   the snapshot plus its renders. If the artifact references relative
+   assets, the snapshot must be self-contained — copy the assets
+   alongside (or point at the project-root copy): a snapshot with broken
+   images is a false-finding generator.
 2. Spawn a fresh-context critic (read-only fence, below). Materials: the
    frozen rubric, the snapshot path, the render paths, the sequence strip,
    the calibration set, and the project root for reference checks. Nothing

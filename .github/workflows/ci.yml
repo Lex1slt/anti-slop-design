@@ -1,0 +1,31 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check (bundled tools + CLI)
+        run: |
+          node --check references/tools/render.mjs
+          node --check references/tools/preflight.mjs
+          node --check wcd.mjs
+      - name: Guard — host brands and renamed leftovers
+        run: |
+          if grep -rniE "zcode|world-class-designer" README.md README.zh-CN.md SKILL.md references/; then
+            exit 1
+          fi
+      - name: Required files
+        run: |
+          test -f SKILL.md
+          test -f references/discover.md
+          test -f references/define.md
+          test -f references/deliver.md
+          test -f references/techniques.md
+          test -f references/taste-library.md
+          test -f wcd.mjs

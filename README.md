@@ -43,12 +43,19 @@ role — reviewer taste is the ceiling of the entire loop.
 anti-slop-design/
 ├── SKILL.md              # core ideas, three-stage overview, hard rules
 ├── references/
-│   ├── discover.md       # problem framing, seed strings, ambitious briefs, intent-first, direction cards
-│   ├── define.md         # critic loop & prompt template, model split, image/shader/video enrichment, screenshot command
-│   ├── deliver.md        # subtraction pass, AI-tells double pass, hand-written copy, delivery checklist
+│   ├── discover.md       # problem framing, seed roll, ambitious briefs, intent first, direction cards
+│   ├── define.md         # pre-flight, ceiling gate, critic loop & prompt, triage, model split, asset rules
+│   ├── deliver.md        # subtraction pass, defaults double pass, hand-written copy, delivery checklist
 │   ├── taste-library.md  # distilled moves from 10 studied sites (when to use + sources)
 │   ├── techniques.md     # the technique map: scroll narrative, motion, layout, styles, 3D/immersive, APIs, combos
-│   └── site-study-*.md   # the full site studies: vallone, chronoswiss, offbrand, grair, rhine, family, cosmos, obys, igloo, exoape
+│   ├── site-study-*.md   # the full site studies: vallone, chronoswiss, offbrand, grair, rhine, family, cosmos, obys, igloo, exoape
+│   └── tools/
+│       ├── render.mjs    # bundled renderer: every width, deterministic file names
+│       └── preflight.mjs # generic floor + interaction-state matrix over CDP
+├── wcd.mjs               # one-line CLI: init / render / preflight
+├── LICENSE               # MIT
+├── CONTRIBUTING.md
+├── CHANGELOG.md
 └── .gitignore
 ```
 
