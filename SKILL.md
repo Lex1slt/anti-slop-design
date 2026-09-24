@@ -59,6 +59,9 @@ the stage starts:
 - `references/techniques.md` — the full technique map (scroll narrative,
   motion, layout, styles, 3D/immersive, APIs, combos) for direction cards,
   wild cards, and LEAP rounds
+- `references/scrollytelling.md` — the scroll-as-timeline paradigm: fixed
+  stage, continuous functions, shared elements, camera model — read this
+  when the brief involves scroll-driven narrative
 
 ## Stage 1 — Discover
 
