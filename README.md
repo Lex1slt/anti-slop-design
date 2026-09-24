@@ -27,11 +27,13 @@ Or paste this at your agent for a one-line install:
 
 ## Trigger it
 
-Just say "design/make a landing page, poster, card, slide deck" or "this looks too AI, redo it" — the skill loads automatically; or invoke it explicitly with `/world-class-designer <request>`.
+Just say "design/make a landing page, poster, card, slide deck" or "this looks too AI, redo it" — the skill loads automatically.
 
-To pin the model split in the request itself:
+Or invoke it explicitly — the format is `/world-class-designer, <request>, <reviewer model>`:
 
-> Use world-class-designer for a landing page for &lt;product&gt;. Run every review subagent on your strongest design model through a dynamic workflow (subagent_model) — read-only and advisory-only, it judges and advises but never edits. Execute its notes yourself with the session model. Done only at an independent ≥9/10.
+> /world-class-designer, a landing page for a specialty coffee brand, review subagent on your strongest design model
+
+The reviewer model is optional — omit it and the agent picks the strongest design model available.
 
 ## Layout
 
