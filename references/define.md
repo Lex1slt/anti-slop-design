@@ -155,7 +155,10 @@ in all three.
    Stop, deliver, write the residual report. When the review itself says
    "the gap is execution bugs, not ambition", that is this rule firing.
 3. **Hard cap: 8 rounds** — stop, deliver the best-scoring snapshot, write
-   the residual report.
+   the residual report. One exception, exactly once: if the final round
+   applied critic-ordered blocking fixes, run **one verification round**
+   (render + fresh-context review of just those fixes) before delivering —
+   unverified fixes do not ship.
 
 **Structural-or-stop**: after any plateau, the next round must ship one
 structural move — usually a removal (cut the weakest device, recompose a
@@ -329,7 +332,10 @@ apply pseudo-code precisely, which a cheap fast model does well.
   knobs): reviewer → the strongest design-judgment model on the machine;
   builder → a cost-effective tier. Never let both roles silently inherit
   the session model. **If the user names a reviewer model in the request,
-  use that one verbatim — it overrides the default pick.**
+  use that one verbatim — it overrides the default pick.** And when the
+  user names no model, setting up the premium-critic workflow is a
+  mandatory pre-round setup step — the executor's first action, before
+  any design work.
 - "Strong at code" is not "strong at taste": choose reviewers by design
   reputation, and re-choose whenever something stronger ships.
 - This is why notes must be pseudo-code concrete — any builder can then
