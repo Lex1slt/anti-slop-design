@@ -41,21 +41,32 @@ Read detailed templates and commands on demand:
 - **Roll a seed string (or name the variation dimensions) before diverging**. Never go straight to "design me X" — that returns the average; words like "unique, random, unconventional" don't work either.
 - **Intent first**: have the model list design intents broad-not-deep, filter and iterate on your taste; once the intent is formed, start building directly — don't ask the model to rewrite it into a full prompt first. For ambitious briefs, mine `references/taste-library.md` first: translate "feel" into sourced, concrete moves — at most 2–3 per page.
 - **Wild card + conventions audit**: audit what this category always looks like and explicitly forbid 2–3 of those conventions; always produce one wild-card direction that breaks one of them (it may lose, but it must exist). Every direction must name its **share shot** — the moment people screenshot. A design with no share shot doesn't enter Define.
+- **Device inventory and budget**: a *device* is one built mechanism (specimen mount, issue numbering, loupe, ruler, archive strip, seal…). List the candidate devices, keep at most **5** for a single page (1 main signature + 2 supporting + up to 2 optional), and make each name the sentence it carries from the problem brief. Kill the rest before Define and record why. Device count is the strongest predictor of loop length — every device is a permanent defect surface.
 - **Produce exactly 3–4 direction cards** that differ significantly (not one idea recolored); generate them one at a time, each one explicitly avoiding what the previous cards already occupy.
 - User online: present the cards and let them pick. Autonomous mode: pick one by the card's own risk assessment, note the reason, and continue.
 
-## Stage 2 — Define (the bulk of the work)
+## Stage 2 — Define (convergence, not grinding)
 
-- **Concept gate at 50% fidelity**: the first critique happens on the half-polished direction (concept + structure + signature moment only), so structural objections land before any polish.
+Quality is won at the front — a strong concept at a disciplined scope — not by grinding many rounds. Rounds are for convergence; the ambition is set before the loop.
+
+- **Concept ceiling gate (at ~30–50% fidelity, before the loop)**: judges one question — *if this were executed flawlessly, would it be a 9?* If the ceiling is below 9, do **not** enter the loop: return to Discover and take another direction (at most twice, then pick the best available). Polish can recover execution deficits; it can never raise a concept's ceiling. A long loop is usually the symptom of polishing an 8-ceiling concept.
+- **Device freeze + one-in-one-out**: after the gate the device set is frozen. Any new element must be paid for by removing one, and the trade is recorded. Critic demands for new moves are answered with "what gets cut?", never with a bare addition.
 - **Executor pre-flight gate**: before every submission run the whole known-checks battery — console clean, fonts truly loaded, links/assets resolve, no overflow, rubric self-scored, AI-tells/copy/subtraction passes done. The critic is not QA; known failure modes never cost a round.
 - **Write an objective scoring rubric (6–9 items) — originality & memorability included — and freeze it before round 1**. Changing standards mid-loop restarts the loop explicitly.
-- Loop: snapshot the artifact into `versions/` and submit the file itself → a **fresh-context** critic subagent reads it and finds the biggest gaps against "how would a top studio execute this aesthetic" → fix substantively per its feedback. No per-round screenshots — render once at delivery, or when the critic asks to see a render.
-- **Triage**: the critic classifies issues BLOCKING (≤3) / MAJOR / MINOR-batch; the executor clears all three classes in one pass — a minor never consumes a round on its own.
-- **Dual critics in parallel** (cost no object): one Craft lens + one Concept lens per round, blocking lists merged into a single fix pass.
-- **Stop condition: the critic independently scores ≥ 9/10 against a top-studio bar**. Never put the threshold into the critic prompt (keep its scoring objective); use the same critic prompt every round.
-- **The critic escalates, it doesn't nibble**: every round's feedback leads with the biggest structural/expressive move (composition / motion / emotion), then details. Screen artifacts need a choreographed signature moment and pointer-reactive behavior — a flawless but static page caps at 8, and flawless-but-familiar caps at 8 too: craft cannot buy originality.
-- Critic feedback must be **directly executable** (pseudo-code level).
-- **Model split, pinned explicitly**: a premium high-taste model is the critic, a cost-effective workhorse executes its pseudo-code-level notes. The critic's taste is the ceiling of the whole loop — never downgrade it to save cost; where the harness allows per-subagent model selection, pin both roles instead of letting them inherit the session model.
+- **Regression invariants**: every defect fixed becomes an item on a do-not-regress list re-checked each round; a regression is BLOCKING regardless of everything else.
+- Loop: snapshot the artifact into `versions/` and submit the file itself → a **fresh-context** critic subagent reads it and finds the biggest gaps → fix substantively in one pass. No per-round screenshots — render at delivery, or when the critic asks to see a render.
+- **Triage**: the critic classifies issues BLOCKING (≤3) / MAJOR / MINOR-batch; the executor clears all three classes in one pass — a minor never consumes a round.
+- **Critic escalation, not nibbling**: every round leads with the biggest structural/expressive move. Flawless-but-static caps at 8; flawless-but-familiar caps at 8 too — craft cannot buy originality.
+- **Concept freeze**: once the gate passes, the Concept critic verifies delivery of the accepted concept and may only veto if the concept is *broken*; its new ideas go to `v2-list.md`, not into this loop.
+- **Critic precondition**: the critic runs on the strongest design judgment available (pinned explicitly where the harness allows). If it can't be, say so before round 1 and stop by the plateau rule, not the 9-threshold.
+- **Three stopping rules (the bar never moves)**:
+  1. the critic independently scores **≥ 9/10** at frozen scope (primary);
+  2. **plateau rule** — two consecutive rounds at the same score with no structural blocking items → stop, deliver, write the residual report;
+  3. **hard cap: 8 rounds** → stop, deliver the best version, write the residual report.
+- **Structural-or-stop on a plateau**: after any plateau the next round must be one structural move — usually a *removal* (cut the weakest device) — never another batch of micro-fixes. If that move doesn't move the score, the plateau rule fires.
+- **Residual report** (with any non-9 delivery): score trajectory, what is unresolved and why, the recommended cut, and a head-to-head (current vs. cut version) so the human makes the last taste call.
+- Never put the threshold into the critic prompt (keep its scoring objective); use the same critic prompt every round.
+- **Model split, pinned explicitly**: a premium high-taste model is the critic, a cost-effective workhorse executes its pseudo-code-level notes. The critic's taste is the ceiling of the whole loop — never downgrade it to save cost.
 - Enrich with three kinds of assets: generated images, shaders/3D, video animation (chroma-key loops, keyframe interpolation).
 
 ## Stage 3 — Deliver
@@ -77,4 +88,6 @@ Read detailed templates and commands on demand:
 3. The critic gets a fresh context every round and never sees past scores or conversation (prevents anchoring and people-pleasing).
 4. Randomness always comes from outside the model (seed strings or named variation dimensions) — never from the model "freestyling".
 5. Concrete instructions only; grand adjectives are not instructions ("more modern", "minimal", "premium" don't count).
-6. In autonomous mode, run the full loop before delivering; never ask "want me to keep optimizing?".
+6. **Scope discipline**: work inside the device budget, one-in-one-out, frozen after the concept gate. The loop may shrink scope, never quietly grow it.
+7. **The loop stops on its own**: ≥9, plateau, or the 8-round cap — then deliver with the residual report. Rounds are for convergence, never for discovering the idea; a concept with a sub-9 ceiling goes back to Discover instead of being ground down.
+8. In autonomous mode, run to a stopping rule and deliver — do not ask "want me to keep optimizing?", and do not run past a stopping rule either.

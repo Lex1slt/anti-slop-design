@@ -81,8 +81,9 @@ The test: **"If you wouldn't say this to a customer face-to-face over coffee, it
 - [ ] The artifact file(s) (HTML / image / PPTX…)
 - [ ] The version archive (every reviewed round's snapshot from `versions/`)
 - [ ] Final screenshots (rendered once at delivery: desktop + mobile, or the artifact's real size)
-- [ ] The score log (each round's critic total + one line per change)
-- [ ] Direction cards archived (from Discover)
+- [ ] The score log (each round's critic total + one line per change + the do-not-regress list)
+- [ ] **Residual report** — required whenever the loop stopped below 9 (plateau or cap): score trajectory, unresolved items and why, the recommended cut, current-vs-cut head-to-head
+- [ ] Direction cards archived (from Discover, including the device list and budget)
 - [ ] Hand-written copy archived (the four rewritten kinds from step 3)
 
 Output goes where the user specifies; if unspecified, a new folder in the working directory. **Never touch the user's existing files.**

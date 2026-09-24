@@ -49,13 +49,36 @@ Checklist, honestly written down:
 
 A submission that hasn't passed pre-flight is wasted review. The critic exists for the *unknown* problems; a known failure class recurring is an executor failure and goes into the delivery record.
 
-## Concept gate at 50% fidelity
+## Concept ceiling gate (before the loop)
 
-The first critique happens when the direction is fixed but the piece is only ~50% polished — direction cards settled, structure and signature moment readable (lo-fi is fine). It judges **concept and structure only**: is the direction right, does the share-shot exist, does the composition hold. Structural objections land *before* polish, so nothing beautiful gets torn down late. After this gate passes, enter the normal loop.
+The first critique happens when the direction is fixed but the piece is only ~30–50% polished — structure and the signature moment readable, lo-fi fine. It judges **one question**: *if this were executed flawlessly, would it be a 9?*
+
+- **Ceiling ≥ 9** → pass; the device list freezes (see below) and the loop starts.
+- **Ceiling < 9** → **do not enter the loop.** Return to Discover and take another direction (at most twice; then pick the best available and accept execution-mode). Polish can recover execution deficits; it can never raise a concept's ceiling.
+
+This gate is where quality is actually won. A 25-round loop is almost always the symptom of grinding an 8-ceiling concept — the rounds cannot fix what only a different concept can.
+
+The gate also **freezes the device list** (from Discover's budget of ≤5): from here on, one in, one out. Any new element must be paid for by removing one, and the trade is recorded in the score log. When a critic demands a new move, the answer is "what gets cut?" — never a bare addition. Scope may shrink mid-loop; it may never quietly grow.
 
 ## Rubric freeze
 
 The rubric freezes before round 1. Changing standards mid-loop (adding motion, shifting voice) restarts the loop explicitly and is recorded — standard drift is the second-biggest cause of slow convergence.
+
+## Regression invariants
+
+Every defect fixed becomes an item on a **do-not-regress list** kept in the score log (device inventory intact, no text collisions at the named widths, contrast tokens, mobile 390, fonts loaded, caption-in-margin rules…). Pre-flight re-checks the list every round, and a regression is **BLOCKING regardless of everything else**. Without this, each round's new work silently breaks an earlier round's win and the loop churns: fix A, break B, fix B, break A.
+
+## Stopping rules (the bar never moves)
+
+Three ways the loop ends — and only these:
+
+1. **≥ 9/10** from the critic at frozen scope (primary; the bar is unchanged);
+2. **Plateau rule** — two consecutive rounds at the same overall score whose blocking lists contain **no structural items** (instrument-level nits only) → stop, deliver, write the residual report. The critic's own verdict that "the gap is execution bugs, not ambition" is the trigger signal;
+3. **Hard cap: 8 rounds** → stop, deliver the best-scoring version, write the residual report.
+
+**Structural-or-stop on a plateau**: after any plateau, the next round must be **one structural move — usually a removal** (cut the weakest device, recompose a section), never another batch of micro-fixes. If that move does not move the score, rule 2 fires. Grinding micro-fixes on a plateau is the failure mode this rule exists to kill.
+
+**The residual report** (attached to every delivery that stopped below 9): the score trajectory; what is unresolved and why; the recommended cut; and a **head-to-head** — the current version vs. the version with the recommended cut applied — so the human makes the last taste call. Design's final 8→9 step is often a taste decision, not a defect list; hand it over cleanly instead of grinding toward it.
 
 ## The critic loop (core)
 
@@ -66,8 +89,8 @@ Each round:
 1. **Snapshot the current artifact into `versions/`** (e.g. `versions/r3-hero.html`) — every reviewed version is kept, nothing is overwritten. This snapshot IS the review submission; rendering is not part of the loop.
 2. **Spawn a fresh-context subagent** (the Agent tool). Its prompt contains only: the full rubric, the snapshot's file path, the output format, and the read-only fence. **No past scores or past critiques** — that prevents anchoring and people-pleasing. The critic reads the artifact's source and judges that.
 3. The critic returns four things: a 1–10 score per rubric item + a one-sentence justification; the **biggest gaps** between "how a top design studio would execute this aesthetic" and the current draft; an overall score (out of 10); and when the total is < 9, mandatory blocking issues — each with its exact location (in the source or on the page), written to **pseudo-code level**, directly actionable.
-4. Fix substantively per the blocking issues (layout / color / information hierarchy — not copy tweaks).
-5. Back to step 1. **Stop condition: the critic independently scores ≥ 9/10**. The threshold never goes into the critic prompt — its scoring must stay objective — and the critic prompt stays identical every round.
+4. Fix substantively per the blocking issues (layout / color / information hierarchy — not copy tweaks), in one pass.
+5. Back to step 1 and apply the **stopping rules** (≥9 / plateau / 8-round cap — see above). The threshold never goes into the critic prompt — its scoring must stay objective — and the critic prompt stays identical every round.
 
 Critic prompt template:
 
@@ -118,6 +141,9 @@ Rules:
   No vague prose.
 - Be harsh by default. If you score a 9, add one sentence on why this
   deserves to be remembered.
+- The device set is frozen. Demand a new element only by naming which
+  existing one gets cut to pay for it ("add X, remove Y") — a demand that
+  cannot name its cut is not a blocking issue.
 If overall < 9: list blocking issues, each with its exact location on the
 page, led by the biggest structural move. Classify every issue
 BLOCKING / MAJOR / MINOR — minors are batched by the executor into one
@@ -137,7 +163,8 @@ Note: "done means 9+" is the outer process's stop condition — **never** put it
 |---|---|---|
 | Giving the critic last round's scores/critiques | Score inflation, a comfy string of 8s | Fresh context every round |
 | Asking the critic "is this good enough?" | Leading the witness | Only the rubric and the artifact snapshot, no lean |
-| Stopping early because rounds piled up | Shipping a 7/10 | The only stop condition: an independent ≥9/10 from the critic |
+| Grinding past a plateau | 20 rounds, same score, scope quietly doubled | Structural-or-stop; plateau rule; 8-round cap |
+| Stopping early because rounds piled up | Shipping a 7/10 | The loop ends only by the three stopping rules — and when it ends below 9, the residual report says so |
 
 ### The critic is advisory-only
 
@@ -151,7 +178,7 @@ Every critique classifies its issues, and the executor clears them all in one pa
 - **MAJOR** — completion problems fixed in this round;
 - **MINOR (batched)** — all nits collected into one batch pass before the next submission; a minor never consumes a round on its own.
 
-A round whose feedback is entirely MINOR must not exist: either the piece is at ≥9 (loop over), or the critic missed the real gap — escalate per the rules above.
+A round whose feedback is entirely MINOR must not exist: either the piece is at ≥9 (loop over), or the critic missed the real gap — escalate per the rules above. **Two such rounds in a row is the plateau signal: stop and deliver with the residual report; do not spend round three on the same class.**
 
 ### Dual critics in parallel (optional, coverage ×2 at half the rounds)
 
@@ -162,6 +189,7 @@ When budget is no object, spawn two read-only critics per round with different l
 The split is the point: **a premium, high-taste model plays critic; a cost-effective workhorse does the grunt work.** The critic's taste is the ceiling of the entire loop; the executor's job is to follow pseudo-code-level instructions precisely, which a cheap fast model does well.
 
 - **Pin both roles explicitly** on harnesses with per-subagent model selection (e.g. a dynamic-workflow `subagent_model`, or equivalent API knobs): critic → the strongest design-judgment model configured on the machine (flagship / "pro" tier); executor → a cost-effective tier. Never let both roles silently inherit whatever model the session happens to run.
+- **Critic precondition (before round 1)**: if the critic cannot be pinned to a top-tier design model, say so up front, and stop by the **plateau rule** — not the 9-threshold. A same-tier critic cannot certify "immaculate" (so the 9 never arrives) and compensates by finding ever-finer defects and demanding ever-more ambition, which drives scope growth instead of convergence. Its escalation ideas then go to `v2-list.md`, not into the fix batch.
 - "Strong at coding ≠ strong at design creativity": pick the critic for design reputation, not benchmarks — and re-pick it whenever a stronger model ships.
 - Which is why critic feedback must be **concrete to the pseudo-code level**: any executor model then knows exactly what to change.
 - On single-model harnesses the split degrades to one model playing both roles — but **fresh context + an objective rubric** are non-negotiable; without them even the best critic degrades.

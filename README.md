@@ -10,8 +10,8 @@ An agent skill built to fight the "average" of AI-generated design — purple gr
 
 When an LLM designs, every decision picks the solution "most likely to please everyone", which adds up to committee-grade mediocrity. It also only ever adds, and loves to call it done at 6/10. This skill pushes it out in three stages:
 
-1. **Discover (~15%)** — fix the problem first, then diverge: seed strings inject real randomness (or just name the variation dimensions), intent comes before prompts, and the output is 3–4 significantly different direction cards — plus one wild card that breaks a category convention;
-2. **Define (~70%)** — an objective scoring rubric (originality included) plus a fresh-context critic subagent loop that measures against "how would a top studio execute this" and returns pseudo-code-level fixes; done only when the critic independently scores ≥9/10; enrich with generated images, shaders/3D, and video animation;
+1. **Discover (~15%)** — fix the problem first, then diverge: seed strings inject real randomness (or just name the variation dimensions), intent comes before prompts, and the output is 3–4 significantly different direction cards — plus one wild card that breaks a category convention, and a **device budget** (at most 5 built mechanisms, each answering a sentence from the brief);
+2. **Define (~70%)** — a **concept ceiling gate** (if this were executed flawlessly, would it be a 9? if not, take another direction instead of grinding), then an objective rubric (originality included) and a fresh-context critic loop that returns pseudo-code-level fixes. The loop stops by three rules — critic ≥9/10, the **plateau rule** (two rounds of non-structural findings), or a **hard 8-round cap** — and anything below 9 ships with a residual report and a current-vs-cut head-to-head for your taste call. Scope is frozen after the gate: one device in, one out;
 3. **Deliver (~15%)** — a subtraction pass (bounded by comprehension cost) → an AI-tells double pass (visual + copy, no unconsidered defaults) → hand-rewrite the title, primary CTA, empty states, and error messages.
 
 ## Install

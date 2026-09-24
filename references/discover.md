@@ -111,3 +111,16 @@ Academic output is not a style failure — it's a process artifact: when every s
 3. **The share shot (mandatory deliverable)**: name the one moment designed to be screenshotted and shared — and why it deserves it. A design with no share shot doesn't enter Define.
 4. **Cross-pollination**: the taste-library is a starting point, not the boundary. Stealing structure from a different medium (magazine grid on a landing page, musical-score layout on a spec sheet, control-panel physics on a form) reads as "new" faster than inventing inside web conventions.
 5. **Mutation before polish**: in Define, before fixing the critic's list, generate two mutations of the current direction — exaggerate one element to an extreme; merge it with an unrelated reference — and consider pushing one. Polish makes 8s; mutations make 9s.
+
+## 6. Device inventory and budget
+
+A **device** is one built mechanism the page carries — an instrument, a system, a recurring construct (specimen mount, issue numbering, loupe, ruler, archive strip, seal, leader lines…). Devices are where the ambition lives *and* where every future defect will live: device count is the strongest predictor of how long the Define loop will run.
+
+Do this before Define, and record it in the design notes:
+
+1. **List candidate devices** for the chosen direction (aim for 6–10 candidates, don't self-censor yet);
+2. **Keep at most 5**: 1 main signature (the share shot usually lives here) + 2 supporting + up to 2 optional. Everything else is killed — write one line per kill saying what the design loses by cutting it (if nothing, it was never a device);
+3. **Each kept device must name the sentence it carries** from the problem brief — a device that answers nothing is decoration, and decoration is what the subtraction pass will eat first;
+4. **Freeze the list** once the concept gate passes. From then on: one in, one out — any addition is paid for by a removal, and the trade is recorded. Critics demanding "more" are answered with "what gets cut?".
+
+The budget is why a 9 is reachable: five devices executed flawlessly is a showpiece; fifteen devices is a permanent defect surface no number of rounds can polish.
