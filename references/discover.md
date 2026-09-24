@@ -1,128 +1,175 @@
-# Discover — fix the problem first, then explore the possibility space
+# Discover — aim the work at a real problem, then open the space
 
-Goal: force real diversity before converging on a single direction. An AI's "random" is pseudo-random; you must inject real randomness — and a direction is only worth as much as the problem behind it.
+Two jobs, in order: pick a problem worth having solved, and fill the space
+around it with directions that could not have appeared by default. An
+agent's "random" is entropy-shaped text, and a brilliant direction aimed at
+nothing is still nothing.
 
-## 1. Fix the problem first (first half of the Double Diamond)
+## 1. Frame the problem
 
-Never assume your first reaction is the need (e.g. for a calorie-tracking app, "photo → calorie analysis" is just one hypothesis). Diverge on problems, then focus:
-
-```
-List 5–8 hypotheses for problems real users hit with <product/scenario>,
-one sentence each, plus one line on who hurts and in which scenario.
-Then pick the single most worth-solving one and write it up as a
-one-sentence problem brief.
-```
-
-- Diverge over real usage scenarios, not feature lists;
-- The focused brief (who, in which scenario, stuck on what) is the question every direction card below must answer.
-
-## 2. Inject randomness with a seed string (String Seed of Thought)
-
-Asked to "just design something", an LLM collapses onto the mode of its training distribution — purple gradients, Inter, rounded cards. And merely saying "unique, random, totally free" doesn't help: the model predicts a string that *sounds* random. Real randomness must come from outside the model:
+The first idea is a hypothesis, not a need.
 
 ```
-Step 1: Generate a random string of 8 characters (letters + digits).
-        Do not think. Just roll.
-Step 2: Map the string to a design direction. Use the characters to pick:
-        an era/decade, an art movement or subculture, a primary material or
-        texture, a time-of-day/weather, a typographic mood.
-        Look beyond the surface for subpatterns and special numbers.
-        Write the mapping down (reproducible).
-Step 3: Design <artifact> fully committed to that direction.
-        Do not blend it back toward "safe modern SaaS".
-        Do not reveal the string in the design — it's only for inspiration.
+List 5–8 hypotheses for what real users of <product/scenario> struggle
+with — one line each: who hurts, and in which moment.
+Then pick the one most worth solving and write it as a single-sentence
+problem brief.
 ```
 
-Notes:
+- Work from scenes, not feature lists;
+- The brief — who, where, stuck on what — is the question every direction
+  card below has to answer.
 
-- Always write the mapping down — later stages need to trace it;
-- The direction is allowed to be weird — Define converges; Discover opens the space;
-- If the rolled direction clearly doesn't fit the subject (cyberpunk for a funeral service), one re-roll is allowed — record it.
+## 2. The seed roll (entropy from outside the model)
 
-**The cheaper equivalent**: skip the string and name the variation dimensions outright — "give me four directions using four completely different typefaces, palettes, and layouts". About as effective as seeds and more controllable when time is tight.
+Ask an agent to "design something random" and it lands on the mode of its
+training data; ask it to be "unique" and it writes a string that merely
+sounds random. Real entropy has to be imported:
 
-## 3. Ambitious briefs (bring your own taste)
+```
+Step 1: Roll 8 characters (letters + digits) in a shell. No thinking.
+Step 2: Read the roll as a brief — let the characters pick an era, a
+        subculture, a material, a light or weather, a type mood. Dig for
+        sub-patterns and odd numbers. Write the mapping down; it must be
+        reproducible.
+Step 3: Build <artifact> fully inside that direction. Do not blend it back
+        toward safe modern defaults. Never show the string — it is fuel,
+        not content.
+```
 
-AI is overly faithful to the brief — the shorter and vaguer it is, the more average it fills in. Don't rely on grand adjectives ("be bold", "don't be conventional" carry little force alone); write instructions **specific enough to picture a world**. Three canonical patterns:
+- The mapping is written down so later stages can trace it;
+- Strange is allowed here — later stages converge; this stage opens;
+- One re-roll is permitted when the roll truly cannot fit the subject, and
+  the re-roll goes on record.
 
-- **Pixel art**: "A bold pixel-art theme with gorgeous graphics; each section feels like a frozen frame of a video game, yet the whole thing still works as a landing page."
-- **Isometric micro city**: "The hero is a 45° bird's-eye miniature 3D city; each feature is represented by a building or a neighborhood, and the copy unfolds from there."
-- **Dissonant order**: "A radically asymmetric layout, dissonant colors and type, uncomfortable negative space. Break all the rules — but still make it look good."
+**The cheaper equivalent**: skip the dice and name the axes — "four
+directions, four different typefaces, palettes, and layouts, nothing
+repeated". Same effect, less ceremony, easier to control.
 
-Safety line (stacks onto any direction): "Make the typography bold. Do not stay within conventional design patterns."
+## 3. Briefs with a point of view
 
-### Intent first — you can skip the prompt
+The agent is loyal to the brief; a vague brief fills itself in with the
+average. Grand adjectives carry no information. Write directions specific
+enough to picture — three shapes that reliably diverge, each anchored to a
+studied site's core move:
 
-When you can't produce a good brief, let AI help you diverge — but **ask for intents, not a prompt**:
+- **The working board** (chronoswiss / rhine) — "an observatory control
+  desk where every function is a gauge or a switch: mono type, engraved
+  panels, backlit dials — and it still works as a page."
+- **The gallery plate** (vallone) — "one object on a seamless field; the
+  interface colorless; hairline captions; the photograph carrying every
+  drop of color on the page."
+- **The broadsheet poster** (offbrand) — "a front page whose headline is
+  set like a poster and whose captions read like ticker tape; typography
+  carries the entire composition."
 
-1. **List intents, broad not deep**:
+A line that stacks onto any direction: "Commit to the composition. Do not
+defend a single conventional decision."
 
-   ```
-   I want a bold, unique design language for <product>.
-   List as many ideas as you can, one short line each. Go broad, not deep.
-   ```
+### Intent first — the prompt can wait
 
-2. **Filter on first reaction, jot taste notes, have AI sharpen the direction**. Example (industrial control panel direction):
+When no brief comes, diverge with the agent — but ask for intents, not a
+prompt:
 
-   ```
-   - I'm imagining something tactile: clicky, satisfying buttons, pleasant sounds;
-   - the cartoony/skeuomorphic look I first pictured feels tacky — avoid it;
-   - gray gradients are boring, I want more texture — maybe some color,
-     but keep the control-panel feel.
-   Sharpen this direction along my tastes.
-   ```
+```
+I want a bold, unmistakable design language for <product>.
+List as many directions as you can, one line each. Wide, not deep.
+```
 
-   Taste lives in your first reaction, not in the wording.
+Filter on first reaction, write your taste notes, hand them back:
 
-3. **Once the intent is formed, start building the page directly** — don't have the model "rewrite the intent into a full prompt" as a separate step; one step is enough.
+```
+- I want it to read like polished stone under gallery light — quiet,
+  cold, expensive;
+- no gradient washes anywhere; the color should come from one material
+  photograph and nowhere else;
+- motion only where the eye already is: the hero image finishes
+  sharpening on load, nothing else moves.
+Sharpen this direction along my tastes.
+```
 
-Two mindset rules:
+Taste lives in the first reaction, not in the wording. Once the intent is
+settled, start building — do not spend a step asking the model to convert
+it into "a full prompt".
 
-- **Don't fear ideas that sound like they'll fail** — the "this can't possibly work" directions often surprise the most; if it truly fails, discard and move on.
-- **Archive failed prompts** and retest them when new models ship — that's how you know you're using the model's full ability.
+Two habits:
 
-## 4. Direction cards (exactly 3–4, and significantly different)
+- Keep the directions that sound unbuildable — they surprise the most; the
+  ones that truly fail get thrown away without ceremony.
+- Archive briefs that failed. Re-run them when a new model ships: what
+  failed last quarter may be this quarter's signature.
+
+## 4. Direction cards (3–4, unmistakably different)
 
 ```
 ### Direction A — "Name"
-- One line: what this design reminds you of
-- Problem it answers: from step 1's problem brief
-- Inspiration/era: from the seed mapping or the ambitious brief
+- One line: what it reminds you of
+- The problem it answers: from §1
+- Inspiration/era: from the roll or the brief
 - Palette: #hex ×3
-- Type mood: e.g. "vintage magazine headline", "terminal mono", "journal rounded"
-- Layout metaphor: e.g. "newspaper front page", "instrument panel", "museum label"
+- Type mood: e.g. "vintage magazine headline", "terminal mono"
+- Layout metaphor: e.g. "newspaper front page", "instrument panel"
 - Signature element: one thing you'd remember it by (not a gradient/glow)
 - Risk: where this direction tends to break
 ```
 
-Generation rules:
+Rules:
 
-- **Generate one at a time**, feeding the already-generated cards back as reference with an explicit "avoid the palette/layout/typefaces they already occupy";
-- **Differentiation self-check**: cover the names — if you can't tell the cards apart, they're variants of one idea; redo.
+- Build them **one at a time**, feeding the finished cards back as
+  reference with an explicit "avoid the palette, layout, and typefaces
+  they already claim";
+- The name-cover test: if you cannot tell the cards apart, they are one
+  idea in costume — redo.
 
-User online: present the cards and let them pick. Autonomous mode: pick one by risk assessment, note the reason, and move into Define.
+User online: present the cards and let them pick. Autonomous: pick by the
+risk each card declares, write the reason down, move into Define.
 
-## 5. The anti-academic engine
+## 5. The anti-academic pass
 
-Academic output is not a style failure — it's a process artifact: when every step optimizes for avoiding mistakes, the result is "well-made but unsurprising". Force the leaps:
+Polite, rule-following output is a process artifact: when every step
+optimizes for avoiding mistakes, the result is well-made and unsurprising.
+Force the leaps:
 
-1. **Category conventions audit (mandatory)**: list what websites in this category always look like (SaaS: hero + three feature cards + pricing + FAQ; portfolio: fullscreen image + thin caption; ...). Explicitly **forbid 2–3 of those conventions** for this project. If a forbidden convention appears, the critic counts it blocking.
-2. **The wild card (mandatory)**: besides the 3–4 direction cards, produce exactly one wild card that breaks one of the forbidden conventions, pushes one element to an extreme, or steals its structure from another medium (album cover, magazine spread, game HUD, boarding pass, architectural plan). The wild card may lose the pick — it may not be absent. Sometimes it wins, and that's the "eye-brightener".
-3. **The share shot (mandatory deliverable)**: name the one moment designed to be screenshotted and shared — and why it deserves it. A design with no share shot doesn't enter Define.
-4. **Cross-pollination**: the taste-library is a starting point, not the boundary. Stealing structure from a different medium (magazine grid on a landing page, musical-score layout on a spec sheet, control-panel physics on a form) reads as "new" faster than inventing inside web conventions.
-5. **Mutation before polish**: in Define, before fixing the critic's list, generate two mutations of the current direction — exaggerate one element to an extreme; merge it with an unrelated reference — and consider pushing one. Polish makes 8s; mutations make 9s.
+1. **Conventions audit** — list what this category always does (SaaS: hero,
+   three feature cards, pricing, FAQ; portfolio: fullscreen image, thin
+   caption). **Forbid 2–3 of those habits** for this project; a forbidden
+   habit that appears is a blocking issue.
+2. **The wild card** — one extra direction that breaks a forbidden habit,
+   pushes an element to an extreme, or steals its structure from another
+   medium (album cover, magazine spread, game HUD, boarding pass,
+   architectural plan). It may lose the pick; it may not be absent.
+3. **The share shot** — name the moment people screenshot, and why it
+   deserves it. A direction with no share shot does not enter Define.
+4. **Cross-pollination** — the taste library is a floor, not a boundary:
+   borrow structure from another medium and it reads as new faster than
+   inventing inside web conventions.
+5. **Mutations over polish** — before fixing a critique list, generate two
+   mutations: push one element to an extreme, or merge the direction with
+   an unrelated reference. Polish turns 8 into 8.5; mutation is what turns
+   8 into 9.
 
-## 6. Device inventory and budget
+## 6. The device budget
 
-A **device** is one built mechanism the page carries — an instrument, a system, a recurring construct (specimen mount, issue numbering, loupe, ruler, archive strip, seal, leader lines…). Devices are where the ambition lives *and* where every future defect will live: device count is the strongest predictor of how long the Define loop will run.
+A **device** is a built mechanism the page carries — a mount, a numbering
+system, a board, a magnifier, a seal, a ruler. Devices are where ambition
+lives, and also where every future defect will live: device count is the
+strongest predictor of how long Define will run.
 
-Do this before Define, and record it in the design notes:
+1. List candidates for the chosen direction (6–10, no self-censoring);
+2. Keep **at most 5**: 1 signature (the share shot usually lives here) +
+   2 supporting + up to 2 optional. Each kept device answers one sentence
+   from the problem brief. Write one line per killed candidate — if
+   nothing is lost, it was never a device;
+3. Freeze the list at the concept gate. From then on: one in, one out, and
+   the trade goes in the score log. A critic asking for a new move must
+   name the cut that pays for it.
 
-1. **List candidate devices** for the chosen direction (aim for 6–10 candidates, don't self-censor yet);
-2. **Keep at most 5**: 1 main signature (the share shot usually lives here) + 2 supporting + up to 2 optional. Everything else is killed — write one line per kill saying what the design loses by cutting it (if nothing, it was never a device);
-3. **Each kept device must name the sentence it carries** from the problem brief — a device that answers nothing is decoration, and decoration is what the subtraction pass will eat first;
-4. **Freeze the list** once the concept gate passes. From then on: one in, one out — any addition is paid for by a removal, and the trade is recorded. Critics demanding "more" are answered with "what gets cut?".
+**The budget counts mechanisms, never content.** Sections, photographs,
+copy blocks, and required animations are content: they do not count against
+the budget and they are not cut to satisfy it. When budget pressure meets
+content, decoration loses. (A documented failure: a run read "cut a device"
+as "cut the product photography" and shipped a hero page without its hero
+image.)
 
-The budget is why a 9 is reachable: five devices executed flawlessly is a showpiece; fifteen devices is a permanent defect surface no number of rounds can polish.
-
-**The budget counts built mechanisms only — never content.** Sections, photographs, copy blocks, and animations the brief requires are content: they are never counted against the budget and never cut to satisfy it. If budget pressure conflicts with content, cut decoration, not information. (A documented failure: a run misread "cut a device" as "cut the product photography" and shipped a hero without its hero image.)
+Five devices built flawlessly is an exhibition piece. Fifteen devices is a
+defect surface no number of rounds can polish.

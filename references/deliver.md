@@ -1,89 +1,109 @@
-# Deliver — subtraction, de-AI-ing, and hand-written copy
+# Deliver — subtraction, defaults on trial, and hand-written copy
 
-Goal: restraint. The last step of world-class design is not adding more — it's removing the noise that's still ringing.
+Goal: restraint. The last stage is not about adding anything — it is about
+removing everything that still makes noise.
 
 ## 1. Subtraction pass (mandatory, its own round)
 
-AI only adds — gradients, shadows, badges, copy pile up. **Restraint reads as premium**; most of a great designer's polishing effort goes into deleting.
+An agent only adds — gradients, shadows, badges, copy pile up. **Restraint
+is what reads as expensive**, and most finishing work is deletion.
 
-For **every element** on the page ask: "does the design get worse without it?" If you can't name a concrete reason, delete.
+For every element ask one question: "does the page get worse without it?"
+No concrete answer, no element.
 
-Cut first:
+First against the wall:
 
-- Decorative gradients, glows, layered shadows;
-- Corner badges ("NEW!", "HOT");
-- Cards and sections that exist to fill space;
-- Repeated CTAs (more than one primary action per screen);
-- The tidy "icon + title + two lines" feature grid;
-- Descriptive text that re-explains what the graphic already says, empty labels, empty containers;
-- Fluff copy (Chinese "赋能/引领/一站式"; English "Revolutionary / Seamless / Empower");
-- Exclamation marks;
-- Custom buttons/components that look worse than the native ones (switch to native).
+- decorative gradients, glows, stacked shadows;
+- corner badges ("NEW!", "HOT");
+- cards and sections that exist to fill space;
+- repeated CTAs (never more than one primary action per screen);
+- the icon-title-two-liner feature grid;
+- captions that re-explain what the picture already says; empty labels and
+  empty containers;
+- fog words (中文"赋能/引领/一站式"; English "seamless / empower /
+  revolutionary");
+- exclamation marks;
+- custom controls that lose to the platform's own — ship the native one.
 
-**Give concrete instructions, not grand ones**: "Simplify into an image-centric grid; remove the gradients, glows, and extra containers" works well; "pursue true minimalism" barely lands — weakest models understand it least.
+Give concrete instructions, not moods: "collapse to an image-first grid;
+strip gradients, glows, and extra containers" works; "pursue true
+minimalism" does nothing, and weaker models understand it least.
 
-**Subtraction has a boundary — comprehension cost**: when a graphic/icon isn't self-explanatory, add a text label or a hover hint instead. Not everything gets deleted; "will users still understand it?" is a veto.
+Subtraction has one boundary — comprehension. If a graphic or icon stops
+the user from understanding, add the text label or hover hint back. "What
+does the user lose?" vetoes everything above.
 
-## 2. AI tells — the double pass (mandatory; visual and copy separately)
+## 2. Defaults on trial — the double pass (visual and copy, separately)
 
-The scoring rubric's item 5 refers to this list.
-The list is a set of habits to interrogate, **not banned elements**: the tell is the unconsidered default use, not the element itself. A purple gradient, a glow, even three matching cards — executed deliberately and at top-studio level — is a choice, and choices are allowed. The pass condition is that every instance reads as a considered decision, not that the patterns are absent.
-Note the difference from the subtraction pass: subtraction asks "does deleting lose information/function?"; de-AI-ing asks "was this the AI's default, or the designer's choice?" **Subtract first, then interrogate.**
+The rubric's item 5 points here. The list below names habits, not banned
+elements: the question is never "is this pattern present?" but "was this
+pattern chosen or inherited?" A glow with a reason stays; a glow by muscle
+memory goes. Subtraction first, this second — they ask different questions.
 
-**Visual fingerprints** — habits to interrogate; presence puts the burden of proof on the design:
+**Visual defaults** (the critic screens for these too):
 
-- [ ] Purple/blue gradient hero, purple CTA buttons, glow effects
-- [ ] Three identical feature cards in a row
-- [ ] Layered glassmorphism
-- [ ] Default Inter / Roboto / system-ui, or too many fonts, no typographic identity
-- [ ] Emoji as icons; ✨🚀 stuffed into headlines
-- [ ] The "works for any startup" layout: copy left, graphic right; everything centered
-- [ ] Stock-looking 3D blobs / wireframe globes
-- [ ] Fake logo walls ("Trusted by ...")
-- [ ] Custom buttons/components that look worse than native ones
-- [ ] Product images with messy inherited backgrounds, low resolution, or halo/jagged cutout edges (product shots must be Apple-grade seamless cutouts)
-- [ ] Rhythmless spacing (every section the same height, no room to breathe)
+- [ ] purple-to-blue hero washes, glowing edges, gradient buttons
+- [ ] a row of three identical feature cards
+- [ ] frosted-glass panels stacked on frosted-glass panels
+- [ ] default Inter/Roboto/system-ui, or more fonts than hierarchy
+- [ ] emoji standing in for icons; ✨🚀 inside headlines
+- [ ] the skeleton that fits any startup: copy left, picture right,
+      everything centered
+- [ ] clip-art 3D blobs and wireframe globes
+- [ ] logo walls of companies that never signed off
+- [ ] bespoke buttons that lose to the platform's own
+- [ ] spacing with no rhythm — every section the same height, nowhere to
+      breathe
 
-**Copy fingerprints** (a separate pass from the visual one):
+**Copy defaults** (a separate pass from the visual one):
 
-- [ ] The "this isn't X — it's Y" construction
-- [ ] Throat-clearing openers (circling before getting to the point)
-- [ ] Fake-depth verbs (赋能/引领/革命性; Revolutionary / Seamless / Empower)
-- [ ] Every sentence the exact same length and rhythm
-- [ ] Marketing fluff, exclamation marks, same-length paragraphs
+- [ ] "this isn't X, it's Y" constructions
+- [ ] openers that clear their throat before the point
+- [ ] prestige verbs (赋能/引领/革命性; revolutionary, seamless, empower)
+- [ ] sentences all cut to the same length
+- [ ] marketing fog, exclamation marks, uniform paragraphs
 
 Audit prompt (run once per pass):
 
 ```
-Audit this design for AI defaults.
-Visual: purple gradients, glow, glassmorphism, three identical feature cards,
-left-copy-right-graphic layout, too many fonts, no white space, custom
-buttons that look worse than native ones. [extend from the visual list above]
-Copy: ["isn't X but Y" constructions, throat-clearing openers, fake-depth
-verbs, uniform sentence length...] Keep my meaning, jokes, and specific
-facts. Do not make every sentence the same length.
-For each pattern present: either state why it is a deliberate, top-studio-grade
-choice, or fix it. Anything you cannot defend, fix.
+Audit this build for inherited defaults.
+Visual: [extend from the visual list above] — for each pattern present,
+name it, locate it, and either defend it as a deliberate choice at this
+level or remove it.
+Copy: [extend from the copy list] — same rule. Keep my meaning, jokes, and
+hard facts. Break the sentence rhythm on purpose where it helps.
+Apply everything in one pass.
 ```
 
-**Every instance must either be gone or defensible as a deliberate, top-studio-grade choice.** "It's on the list" is never the reason to delete something — "it's here by default" always is. Audit output format: each pattern found, its location, the defense or the fix — then apply them all. The copy pass can also be checked with a humanizer-class de-AI writing tool.
+**Every instance ends gone or defended.** "It's on the list" is never a
+reason to delete; "it's here by default" always is. The copy pass can also
+be checked with a humanizer-class de-AI writing tool.
 
-## 3. Hand-written key copy (mandatory)
+## 3. Hand-write the load-bearing copy (mandatory)
 
-Title, primary CTA, empty states, error messages — these four are where "the average" survives longest, and the model's draft is guaranteed mediocre. **Rewrite them by hand** before shipping; "minor tweaks" don't count.
+Four strings carry the page: the **title**, the **primary action**, the
+**empty state**, the **error message**. Model drafts average out to mush
+exactly there — rewrite them by hand before shipping. "Lightly edited"
+does not count.
 
-The test: **"If you wouldn't say this to a customer face-to-face over coffee, it doesn't go on the page."**
+The test: read the line aloud. If you would not say it to a customer
+standing next to you, it does not ship.
 
-(Process philosophy: let the agents explore — but you make the final call.)
+(The division of labor is deliberate: agents explore; the human decides.)
 
 ## 4. Delivery checklist
 
-- [ ] The artifact file(s) (HTML / image / PPTX…)
-- [ ] The version archive (every reviewed round's snapshot from `versions/`)
-- [ ] Final screenshots (rendered once at delivery: desktop + mobile, or the artifact's real size)
-- [ ] The score log (each round's critic total + one line per change + the do-not-regress list)
-- [ ] **Residual report** — required whenever the loop stopped below 9 (plateau or cap): score trajectory, unresolved items and why, the recommended cut, current-vs-cut head-to-head
-- [ ] Direction cards archived (from Discover, including the device list and budget)
-- [ ] Hand-written copy archived (the four rewritten kinds from step 3)
+- [ ] The artifact file(s) (HTML / image / deck…)
+- [ ] The version archive (every reviewed round's snapshot)
+- [ ] Final renders (taken once, at delivery: desktop + mobile, or true
+      size)
+- [ ] The score log — per-round totals, change lines, and the
+      do-not-regress list
+- [ ] The residual report — required whenever the loop stopped below 9
+      (plateau or cap): trajectory, unresolved items and why, the
+      recommended cut, current-vs-cut head-to-head
+- [ ] Direction cards and the device list (from Discover)
+- [ ] The four hand-written strings
 
-Output goes where the user specifies; if unspecified, a new folder in the working directory. **Never touch the user's existing files.**
+Output goes where the user says; otherwise a new folder in the working
+directory. The user's existing files are never touched.

@@ -1,94 +1,151 @@
 ---
 name: anti-slop-design
-description: A three-stage protocol (Discover → Define → Deliver) that forces AI out of its default design taste — stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI. Use whenever the user asks you to "design / beautify / make" any visual artifact, or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
+description: A scope-disciplined, critic-gated design protocol for coding agents — three stages (Discover → Define → Deliver), a device budget, a concept ceiling gate, regression invariants, and three stopping rules. Use whenever the user asks you to "design / beautify / make" any visual artifact (web page, landing page, poster, social card, slide deck, UI), or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
 ---
 
-# Anti-Slop Design — three stages that force AI out of its default taste
+# Anti-Slop Design
 
-## Why
+A working protocol for coding agents that design. It exists because of one
+reliable failure: when an AI agent designs, every decision resolves to the
+choice least likely to offend anyone. It also never deletes anything, and it
+calls "done" at 6/10.
 
-Left to its defaults, AI design is slop: purple gradients, Inter, rounded-card grids. The root cause is not a lack of capability:
+The protocol replaces that behavior with three stages, a frozen scope, and a
+reviewer that cannot be pleased by effort. It optimizes for convergence, not
+grinding: ambition is spent before the first round starts, and the rounds
+only close the distance.
 
-1. **Prediction instinct** — an LLM is a next-token predictor tuned on human feedback; at every design decision it fills in the token "most likely to please everyone", which adds up to committee-grade mediocrity;
-2. **Great design is the opposite** — it starts from feeling, aims for emotional resonance, and breaks rules with memorable, unexpected choices — exactly what the model avoids by default;
-3. **It only adds, never subtracts** — models rarely delete elements; piling up is mediocrity;
-4. **It finishes too early** — it loves to declare "done!" at 6/10.
+## Why output converges to mush
 
-The countermeasures are exactly three: **inject randomness from outside the model** (seed strings / named variation dimensions); **hand quality judgment to a critic agent with no baggage**; **premium comes from deleting, not adding**.
+1. A model predicts the next token and was tuned to please everyone — so
+   every design decision resolves to the safest option on the table.
+2. Strong design is the opposite: a point of view, a feeling, a rule broken
+   on purpose.
+3. It never deletes. Volume reads as progress.
+4. It declares victory at 6/10.
 
-This skill chases the ceiling: **quality is the only stop condition**. Token cost, round count, and wall-clock time are explicitly not constraints — the loop runs as long as the critic finds real gaps.
+The countermeasures are exactly three, and everything below serves them:
 
-The process skeleton is borrowed from the Double Diamond — diverge on problems → focus one problem → diverge on solutions → focus and deliver — translated into the three stages below.
+- **Entropy from outside the model** (seed rolls, named variation axes) —
+  a model asked to "be random" only predicts randomness-shaped text;
+- **Judgment from a reviewer with no history** — a fresh-context critic that
+  scores against a frozen rubric;
+- **The last pass removes more than it adds.**
 
-## Process overview
+Scope is the other half of the contract. A loop can only converge inside a
+frozen scope: the device list is budgeted in Discover, frozen at the concept
+gate, and the bar never moves mid-loop.
 
-| Stage | Goal | Effort | Key moves |
-|---|---|---|---|
-| 1. Discover | Breadth: fix the problem, then explore the possibility space | ~15% | converge problem hypotheses → seed string / named dimensions → 3–4 direction cards |
-| 2. Define | Depth: push the chosen direction to 9/10 | ~70% | scoring rubric → fresh-context critic loop → enrich with generated images / shaders / video |
-| 3. Deliver | Restraint: subtraction and de-AI-ing | ~15% | subtraction pass → AI-tells double pass → hand-written key copy |
+## The three stages
 
-Read detailed templates and commands on demand:
+| Stage | Goal | Share | What happens |
+| --- | --- | --- | --- |
+| 1. Discover | Aim at a real problem, then open the space | ~15% | problem brief → seed roll / named variation axes → intent first → 3–4 direction cards + 1 wild card |
+| 2. Define | Close the distance to 9/10 | ~70% | concept ceiling gate → frozen rubric + fresh-context critic loop → device one-in-one-out → assets only as the concept needs |
+| 3. Deliver | Restraint | ~15% | subtraction pass → defaults double pass → hand-written load-bearing copy |
 
-- `references/discover.md` — problem framing, seed strings, ambitious briefs, intent-first, direction-card format
-- `references/define.md` — critic loop and prompt template, model split, image/shader/video enrichment, local screenshot command
-- `references/deliver.md` — subtraction pass, AI-tells double pass, hand-written copy, delivery checklist
-- `references/taste-library.md` — distilled moves from studied sites (vallone, chronoswiss, offbrand, grair, rhine): what each is for, when to use it, plus the full site studies
+Templates, checklists, and commands live in `references/` and are read when
+the stage starts:
 
-## Stage 1 — Discover (mandatory, never skip)
+- `references/discover.md` — problem framing, the seed roll, ambitious
+  briefs, intent first, direction cards, the device budget, the
+  anti-academic engine
+- `references/define.md` — pre-flight, the ceiling gate, the critic loop and
+  its prompt, triage, model split, asset rules, rendering
+- `references/deliver.md` — subtraction, defaults on trial, hand-written
+  copy, the delivery checklist
+- `references/taste-library.md` — concrete moves distilled from studied
+  sites, each with when-to-use and known failure modes
 
-- **Fix the problem first**: list several "problems worth solving" hypotheses from real user scenarios, then converge. Never assume your first reaction is the need.
-- **Roll a seed string (or name the variation dimensions) before diverging**. Never go straight to "design me X" — that returns the average; words like "unique, random, unconventional" don't work either.
-- **Intent first**: have the model list design intents broad-not-deep, filter and iterate on your taste; once the intent is formed, start building directly — don't ask the model to rewrite it into a full prompt first. For ambitious briefs, mine `references/taste-library.md` first: translate "feel" into sourced, concrete moves — at most 2–3 per page.
-- **Wild card + conventions audit**: audit what this category always looks like and explicitly forbid 2–3 of those conventions; always produce one wild-card direction that breaks one of them (it may lose, but it must exist). Every direction must name its **share shot** — the moment people screenshot. A design with no share shot doesn't enter Define.
-- **Device inventory and budget**: a *device* is one built mechanism (specimen mount, issue numbering, loupe, ruler, archive strip, seal…). List the candidate devices, keep at most **5** for a single page (1 main signature + 2 supporting + up to 2 optional), and make each name the sentence it carries from the problem brief. Kill the rest before Define and record why. Device count is the strongest predictor of loop length — every device is a permanent defect surface.
-- **Produce exactly 3–4 direction cards** that differ significantly (not one idea recolored); generate them one at a time, each one explicitly avoiding what the previous cards already occupy.
-- User online: present the cards and let them pick. Autonomous mode: pick one by the card's own risk assessment, note the reason, and continue.
+## Stage 1 — Discover
 
-## Stage 2 — Define (convergence, not grinding)
+Never skip it. Everything downstream inherits its quality.
 
-Quality is won at the front — a strong concept at a disciplined scope — not by grinding many rounds. Rounds are for convergence; the ambition is set before the loop.
+- **Frame the problem first.** List what real users actually struggle with,
+  pick the worthiest, write a one-sentence problem brief. The first reaction
+  is a hypothesis, not a need.
+- **Roll for entropy.** 8 random characters from a shell; read them as an
+  era, a subculture, a material, a light, a type mood. Named variation axes
+  ("four directions, four typefaces, four palettes, no repeats") are the
+  cheaper equivalent.
+- **Intent before prompts.** Have the model list directions wide-not-deep,
+  filter on first reaction, iterate on taste — then build directly. Do not
+  ask the model to convert the intent into "a full prompt" first.
+- **Audit the category, then break it.** List what these sites always do,
+  forbid 2–3 of those habits, and make sure one direction breaks one of
+  them.
+- **Mine the taste library.** `references/taste-library.md` translates
+  "make it feel expensive / alive / radical" into sourced, concrete moves —
+  at most 2–3 per page.
+- **The wild card.** Always produce one direction that breaks a forbidden
+  convention or steals its structure from another medium. It may lose the
+  pick; it may not be absent.
+- **The share shot.** Every direction names the moment people screenshot.
+  No share shot, no entry into Define.
+- **Device budget.** List the candidate *devices* — built mechanisms such
+  as mounts, numbering systems, boards, magnifiers, seals. Keep at most 5
+  (1 signature + 2 supporting + 2 optional), each answering a sentence from
+  the problem brief; record why the others died. Sections, photos, copy,
+  and required animations are content, not devices — the budget never cuts
+  them.
 
-- **Concept ceiling gate (at ~30–50% fidelity, before the loop)**: judges one question — *if this were executed flawlessly, would it be a 9?* If the ceiling is below 9, do **not** enter the loop: return to Discover and take another direction (at most twice, then pick the best available). Polish can recover execution deficits; it can never raise a concept's ceiling. A long loop is usually the symptom of polishing an 8-ceiling concept.
-- **Device freeze + one-in-one-out**: after the gate the device set is frozen. Any new element must be paid for by removing one, and the trade is recorded. Critic demands for new moves are answered with "what gets cut?", never with a bare addition.
-- **Executor pre-flight gate**: render the build first (desktop + claimed widths) — unrendered HTML ships with broken images and dead animations; then run the known-checks battery — console clean, fonts truly loaded, **every referenced asset exists on disk**, completeness floor holds, links resolve, no overflow, rubric self-scored, AI-tells/copy/subtraction passes done. The critic is not QA; known failure modes never cost a round.
-- **Write an objective scoring rubric (6–9 items) — originality & memorability included — and freeze it before round 1**. Changing standards mid-loop restarts the loop explicitly.
-- **Regression invariants**: every defect fixed becomes an item on a do-not-regress list re-checked each round; a regression is BLOCKING regardless of everything else.
-- Loop: snapshot the artifact into `versions/` **and render it** (desktop + supported widths) — submit **both** the snapshot and its renders → a **fresh-context** critic subagent reads them plus anything else in the project (read-only: assets, fonts, notes, earlier versions) and returns the biggest gaps → fix substantively in one pass.
-- **Triage**: the critic classifies issues BLOCKING (≤3) / MAJOR / MINOR-batch; the executor clears all three classes in one pass — a minor never consumes a round.
-- **Critic escalation, not nibbling**: every round leads with the biggest structural/expressive move. Flawless-but-static caps at 8; flawless-but-familiar caps at 8 too — craft cannot buy originality.
-- **Concept freeze**: once the gate passes, the Concept critic verifies delivery of the accepted concept and may only veto if the concept is *broken*; its new ideas go to `v2-list.md`, not into this loop.
-- **Critic precondition**: the critic runs on the strongest design judgment available (pinned explicitly where the harness allows). If it can't be, say so before round 1 and stop by the plateau rule, not the 9-threshold.
-- **Three stopping rules (the bar never moves)**:
-  1. the critic independently scores **≥ 9/10** at frozen scope (primary);
-  2. **plateau rule** — two consecutive rounds at the same score with no structural blocking items → stop, deliver, write the residual report;
-  3. **hard cap: 8 rounds** → stop, deliver the best version, write the residual report.
-- **Structural-or-stop on a plateau**: after any plateau the next round must be one structural move — usually a *removal* (cut the weakest device) — never another batch of micro-fixes. If that move doesn't move the score, the plateau rule fires.
-- **Residual report** (with any non-9 delivery): score trajectory, what is unresolved and why, the recommended cut, and a head-to-head (current vs. cut version) so the human makes the last taste call.
-- Never put the threshold into the critic prompt (keep its scoring objective); use the same critic prompt every round.
-- **Model split, pinned explicitly**: a premium high-taste model is the critic, a cost-effective workhorse executes its pseudo-code-level notes. The critic's taste is the ceiling of the whole loop — never downgrade it to save cost.
-- Enrich with three kinds of assets: generated images, shaders/3D, video animation (chroma-key loops, keyframe interpolation).
+Deliver 3–4 direction cards that are unmistakably different. User online:
+they pick. Autonomous: pick by declared risk, write the reason, move on.
+
+## Stage 2 — Define
+
+Convergence, not grinding. The score is won at the front — a concept with a
+9 ceiling at a disciplined scope — and the rounds only close the distance.
+
+- **Concept ceiling gate (before the loop, at ~30–50% fidelity)**: one
+  question — *executed flawlessly, is this a 9?* Yes → freeze the device
+  list and start. No → back to Discover, another direction (at most twice,
+  then ship the best available). A 25-round loop is the signature of
+  polishing an 8-ceiling concept.
+- **One frozen rubric (6–9 items), originality included.** Freeze it before
+  round 1; changing standards mid-loop restarts the loop explicitly.
+- **Pre-flight on every submission**: render the build first (unrendered
+  HTML ships broken images and dead motion), then console clean, fonts
+  truly loaded, every referenced asset on disk, completeness floor holds,
+  no overflow, rubric self-scored, defaults/copy/subtraction passes done.
+  The critic is not QA.
+- **Loop**: snapshot into `versions/` + render → a fresh-context critic
+  reads the snapshot, the renders, and anything else in the project
+  (read-only) → returns per-item scores, the biggest gaps, and blocking
+  issues located and written as instructions a builder can apply verbatim →
+  clear BLOCKING / MAJOR / MINOR in one pass.
+- **Concept freeze**: after the gate, the Concept lens verifies delivery of
+  the accepted concept. New ideas go to `v2-list.md`, not into this loop.
+- **Regression invariants**: every fixed defect joins a do-not-regress list
+  re-checked each round. A regression is blocking, always.
+- **Model split, pinned**: the strongest design-judgment model available is
+  the critic; a cost-effective workhorse executes. Never downgrade the
+  critic to save cost, and never let both roles silently inherit the
+  session model.
 
 ## Stage 3 — Deliver
 
-- **Subtraction pass**: for every element ask "does the design get worse without it?" — no concrete reason, delete. Bounded by comprehension cost: if an icon isn't self-explanatory, add a text label or hover hint instead of deleting.
-- **AI-tells double pass**: visual and copy fingerprints, checked in two separate passes. The list names habits to interrogate, not banned elements — every pattern that appears must be a deliberate, top-studio-grade choice; the default use is the tell, not the element.
-- **Hand-write the key copy**: title, primary CTA, empty states, error messages — rewrite these yourself; don't ship the model's draft.
-
-## Local toolchain
-
-- **Screenshots**: Edge headless (silent, windowless, quiet-friendly), command in references/define.md.
-- **Real imagery**: image-generation API first (when a key exists); else mcp image-search for real photos/textures; else the restrained-typography route.
-- **Quiet operation**: fully silent, no pop-up windows, low load — never disturb.
+- **Subtraction pass** (own round): "does the page get worse without it?"
+  — no concrete answer, gone. Bounded by comprehension: if an icon stops
+  understanding, add the label back instead.
+- **Defaults double pass**: visual and copy habits interrogated separately;
+  every instance is either a justified choice or removed.
+- **Hand-written copy**: title, primary CTA, empty states, error messages —
+  rewritten by hand; model drafts do not ship.
 
 ## Hard rules
 
-1. The three stages run in order; never jump from Discover straight to Deliver.
-2. When the critic scores below 9/10, the next round must change something substantive (layout / color / information hierarchy), not tweak copy.
-3. The critic gets a fresh context every round and never sees past scores or conversation (prevents anchoring and people-pleasing).
-4. Randomness always comes from outside the model (seed strings or named variation dimensions) — never from the model "freestyling".
-5. Concrete instructions only; grand adjectives are not instructions ("more modern", "minimal", "premium" don't count).
-6. **Scope discipline**: work inside the device budget, one-in-one-out, frozen after the concept gate. The loop may shrink scope, never quietly grow it.
-7. **The loop stops on its own**: ≥9, plateau, or the 8-round cap — then deliver with the residual report. Rounds are for convergence, never for discovering the idea; a concept with a sub-9 ceiling goes back to Discover instead of being ground down.
-8. **Continue from the latest accepted version; never rewrite from scratch.** Every round edits the last accepted snapshot, and the completeness floor holds: everything the last accepted version had (sections, images, copy, animations) remains unless the critic ordered its removal.
-9. In autonomous mode, run to a stopping rule and deliver — do not ask "want me to keep optimizing?", and do not run past a stopping rule either.
+1. Stages run in order; no jumping into Deliver.
+2. Below 9/10, the next round changes something structural (layout, color,
+   hierarchy) — not copy polish.
+3. The critic is fresh-context every round and never sees prior scores or
+   notes.
+4. Randomness enters from outside the model, or not at all.
+5. Concrete instructions only; "more modern" is not an instruction.
+6. Scope moves one way inside the loop: shrink. One device in, one out,
+   trade recorded.
+7. The loop stops by rule — ≥9, plateau, or the 8-round cap — and delivers
+   with a residual report. It never runs past a stopping rule, and it never
+   asks permission to stop.
+8. Resume from the last accepted snapshot; never rewrite from scratch; the
+   completeness floor always holds.
