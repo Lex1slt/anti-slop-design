@@ -489,7 +489,20 @@ edges at 2× zoom. In-situ "life" photography is the other legitimate mode
 - **Inpainting/outpainting** to extend a generated scene past the crop or
   remove an element the composition doesn't need.
 
-### 3D — procedural, modeled, generated
+### 3D — four paths, cheapest first
+
+1. **Procedural (code, zero deps)** — Three.js geometry, particles,
+   shaders, line-based 3D. The igloo-class sites are mostly this:
+   procedural shapes + one good shader beat photoreal assets.
+2. **CC0 asset libraries (no key, network only)** — Poly Haven (521 CC0
+   models + HDRIs + textures, `api.polyhaven.com`), Sketchfab CC0 search.
+   A matching real asset beats a generated one; flowers, furniture,
+   instruments all exist.
+3. **Local Blender (headless bpy)** — scripted modeling and rendering,
+   fully offline, after `winget install BlenderFoundation.Blender`. The
+   heavy hammer for custom assets.
+4. **AI text-to-3D / image-to-3D APIs** — Meshy / Tripo class, needs a
+   key. Image-to-3D from a product photo is the killer use when it fits.
 
 - Procedural Three.js for instruments, boards, and objects the concept
   can define in geometry (materials and lighting carry the realism);
