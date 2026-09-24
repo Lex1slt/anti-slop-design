@@ -11,7 +11,16 @@ Source review catches broken states, lying copy, unloaded fonts, and dead
 motion; renders catch what only pixels show. Both are cheap — render at
 delivery, and any time judgment needs eyes.
 
-Edge headless (silent, windowless):
+**Use the bundled tool** — one call, every width, deterministic file names
+(`<stem>-<W>x<H>.png`), nonzero exit on any failure:
+
+```bash
+node <skill>/references/tools/render.mjs <artifact.html> <outDir> --widths 1440x900,390x844
+```
+
+Do not hand-write the browser invocation per project — the tool already
+resolves the browser path, the file:// URL, and the size list. When
+debugging a single shot, the raw call it wraps is:
 
 ```bash
 "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless --disable-gpu \
@@ -21,9 +30,8 @@ Edge headless (silent, windowless):
   "file:///D:/path/artifact.html"
 ```
 
-- Mobile: `--window-size=390,844`.
 - Forward slashes after `file:///`.
-- Long pages: taller window, or capture in segments.
+- Long pages: a taller entry in `--widths`, or capture in segments.
 - Single-screen pieces: size the window to the piece.
 
 ## The rubric (written before the loop, then frozen)

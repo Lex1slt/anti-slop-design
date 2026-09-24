@@ -104,11 +104,12 @@ Convergence, not grinding. The score is won at the front — a concept with a
   polishing an 8-ceiling concept.
 - **One frozen rubric (6–9 items), originality included.** Freeze it before
   round 1; changing standards mid-loop restarts the loop explicitly.
-- **Pre-flight on every submission**: render the build first (unrendered
-  HTML ships broken images and dead motion), then console clean, fonts
-  truly loaded, every referenced asset on disk, completeness floor holds,
-  no overflow, rubric self-scored, defaults/copy/subtraction passes done.
-  The critic is not QA.
+- **Pre-flight on every submission**: render the build first with
+  `references/tools/render.mjs` (do not hand-write the invocation —
+  unrendered HTML ships broken images and dead motion), then console
+  clean, fonts truly loaded, every referenced asset on disk, completeness
+  floor holds, no overflow, rubric self-scored, defaults/copy/subtraction
+  passes done. The critic is not QA.
 - **Loop**: snapshot into `versions/` + render → a fresh-context critic
   reads the snapshot, the renders, and anything else in the project
   (read-only) → returns per-item scores, the biggest gaps, and blocking
