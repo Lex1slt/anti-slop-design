@@ -151,10 +151,11 @@ Convergence, not grinding. The score is won at the front — a concept with a
   the accepted concept. New ideas go to `v2-list.md`, not into this loop.
 - **Regression invariants**: every fixed defect joins a do-not-regress list
   re-checked each round. A regression is blocking, always.
-- **Model split, pinned**: the strongest design-judgment model available is
-  the critic; a cost-effective workhorse executes. Never downgrade the
-  critic to save cost, and never let both roles silently inherit the
-  session model.
+- **Model split**: default is the session model as both critic and
+  workhorse — but the README recommends running the reviewer on the
+  strongest design model available, because reviewer taste is the
+  ceiling of the loop. If the user names a reviewer model, use it
+  verbatim.
 
 ## Stage 3 — Deliver
 

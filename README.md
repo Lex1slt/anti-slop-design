@@ -33,7 +33,9 @@ Or invoke it explicitly — the format is `/anti-slop-design, <request>, <review
 
 > /anti-slop-design, a landing page for a specialty coffee brand, review subagent on your strongest design model
 
-The reviewer model is optional — omit it and the agent picks the strongest design model available.
+The reviewer model is optional — omit it and the review runs on the
+session model. **Recommended**: name a stronger design model for this
+role — reviewer taste is the ceiling of the entire loop.
 
 ## Layout
 

@@ -332,10 +332,10 @@ apply pseudo-code precisely, which a cheap fast model does well.
   knobs): reviewer → the strongest design-judgment model on the machine;
   builder → a cost-effective tier. Never let both roles silently inherit
   the session model. **If the user names a reviewer model in the request,
-  use that one verbatim — it overrides the default pick.** And when the
-  user names no model, setting up the premium-critic workflow is a
-  mandatory pre-round setup step — the executor's first action, before
-  any design work.
+  use that one verbatim — it overrides the default pick.** Default when no
+  model is named: the critic runs on the session model — and the README
+  recommends a stronger design model for this role, because reviewer
+  taste is the ceiling of the loop.
 - "Strong at code" is not "strong at taste": choose reviewers by design
   reputation, and re-choose whenever something stronger ships.
 - This is why notes must be pseudo-code concrete — any builder can then
