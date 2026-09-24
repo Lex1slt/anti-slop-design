@@ -126,6 +126,10 @@ Convergence, not grinding. The score is won at the front — a concept with a
   (read-only) → returns per-item scores, the biggest gaps, and blocking
   issues located and written as instructions a builder can apply verbatim →
   clear BLOCKING / MAJOR / MINOR in one pass.
+- **Reach into the capability toolbox during Define** — generated images,
+  cutouts/keying, super-resolution, 3D, video and motion — proactively,
+  whenever the concept calls for something code alone can't produce well;
+  then back into the critic loop.
 - **Concept freeze**: after the gate, the Concept lens verifies delivery of
   the accepted concept. New ideas go to `v2-list.md`, not into this loop.
 - **Regression invariants**: every fixed defect joins a do-not-regress list
@@ -149,6 +153,9 @@ Convergence, not grinding. The score is won at the front — a concept with a
 
 - `references/tools/render.mjs` — the renderer for every round and for
   delivery (all widths, deterministic file names);
+- The **capability toolbox** (`references/define.md`): generated images,
+  cutouts and keying, super-resolution, 3D, video and motion — reach for
+  these proactively whenever code alone would look worse;
 - Image generation / image search — assets before CSS decoration;
 - Contrast, reduced-motion, and focus checks — scripted in pre-flight;
 - Whatever else the job needs, call it proactively instead of hand-rolling
