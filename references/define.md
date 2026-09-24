@@ -189,9 +189,37 @@ Each round:
    BLOCKING / MAJOR / MINOR, each writable as an instruction a builder
    applies without taste.
 4. Clear all three classes in one pass. Below 9, the round must change
-   structure — layout, color, hierarchy — not copy.
+   structure — layout, color, hierarchy — not copy. **LEAP rounds declare
+   the move in the score log before building: what jumps, and which
+   existing element pays for it.**
 5. Apply the stopping rules. The threshold never enters the critic's
    prompt, and the prompt never changes between rounds.
+
+### The rhythm — alternate LEAP and FIX rounds
+
+Below 9, rounds alternate. **A LEAP round ships exactly one bold move**
+from the menu below, declared in the score log before building: what
+jumps, and which existing element pays for it. **A FIX round** only
+clears the triage list and polishes. Two consecutive FIX rounds are
+forbidden below 9 — detail-only rounds are how a loop runs twenty rounds
+without moving the needle. On a plateau the next round must be a LEAP;
+if no bold move fits the concept anymore, that is the plateau speaking:
+stop and deliver.
+
+**The bold-move menu** — one per LEAP round, mix classes across rounds:
+
+| Class | Example moves |
+| --- | --- |
+| Composition | invert the layout spine; full-bleed break-out; overlap the hero across sections; asymmetric split 60/40 → 30/70; take one section off-grid |
+| Color & light | invert light/dark; swap the accent hue; duotone; strip all UI color and let media carry it |
+| Type & scale | invert the display/body ratio; set the headline as the hero graphic; switch the narrative typeface family |
+| Devices | remove the weakest device entirely; replace it with a bolder one; merge two into one |
+| Medium | add a photographic, 3D, or video layer where there was none; bring in engraving, scan, or print texture |
+| Density | flip one full section maximalist ↔ radical emptiness |
+| Art language | run one pass in a different art language — brutalist, art nouveau, swiss, Memphis — as a mutation, keep only if the concept survives |
+
+Every LEAP round also answers: **which device did this make obsolete?**
+If the answer is none, it was a tweak wearing a costume — redo it.
 
 Critic prompt (frozen; identical every round):
 

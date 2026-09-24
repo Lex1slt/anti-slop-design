@@ -131,11 +131,18 @@ Convergence, not grinding. The score is won at the front — a concept with a
   The critic is not QA.
 - **Loop**: snapshot into `versions/` + render + assemble the evidence
   pack → a fresh-context critic judges **eyes-first** (renders and the
-  load-sequence strip before source), **ranks the design against the
+  sequence strip before source), **ranks the design against the
   calibration set**, then audits the source only to locate causes →
   returns per-item scores, the biggest gaps, and blocking issues written
   as instructions a builder can apply verbatim → clear BLOCKING / MAJOR /
   MINOR in one pass.
+- **The rhythm: alternate LEAP and FIX rounds.** A LEAP round ships one
+  bold move from the menu in `references/define.md` — recomposition,
+  palette inversion, type-scale inversion, device replacement, medium
+  jump, density flip, art-language mutation — declared in the score log
+  before building (what jumps, what pays for it). Two consecutive
+  FIX-only rounds are forbidden below 9: detail rounds never move the
+  needle, only leaps do.
 - **Reach into the capability toolbox during Define** — generated images,
   cutouts/keying, super-resolution, 3D, video and motion — proactively,
   whenever the concept calls for something code alone can't produce well;
