@@ -33,6 +33,11 @@ debugging a single shot, the raw call it wraps is:
 - Forward slashes after `file:///`.
 - Long pages: a taller entry in `--widths`, or capture in segments.
 - Single-screen pieces: size the window to the piece.
+- **SPAs and framework builds** (Vue/React/Svelte): pass the built
+  `dist/index.html` — bundle with a relative base (`base: './'`) so it
+  opens over file:// — or pass any `http://localhost` dev URL; the tool
+  passes URLs through. SPA first paint is JS-driven, so give `--vt`
+  enough budget (8000+).
 
 ## The rubric (written before the loop, then frozen)
 
