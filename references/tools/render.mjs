@@ -23,6 +23,7 @@ let vt = 4000;
 let browser = '';
 let gpu = false;
 let scale = 1;
+let seq = '';
 
 for (let i = 0; i < argv.length; i++){
   const a = argv[i];
@@ -31,6 +32,7 @@ for (let i = 0; i < argv.length; i++){
   else if (a === '--browser') browser = argv[++i] ?? browser;
   else if (a === '--gpu') gpu = true;
   else if (a === '--scale') scale = Math.max(1, parseFloat(argv[++i]) || 1);
+  else if (a === '--seq') seq = argv[++i] ?? seq;
   else positional.push(a);
 }
 const [htmlArg, outArg] = positional;
@@ -65,6 +67,32 @@ const stem = isUrl
   ? (new URL(html).pathname.split('/').filter(Boolean).pop() || 'page').replace(/\.[^.]+$/, '')
   : basename(html).replace(/\.[^.]+$/, '');
 const sizes = widths.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+
+/* --seq 300,700,1500: capture the load choreography at several virtual-time
+   points, so a reviewer can see the motion arc, not just the last frame. */
+if (seq){
+  const [w, h] = sizes[0].split('x');
+  const points = seq.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n));
+  let fails = 0, n = 0;
+  for (const ms of points){
+    n++;
+    const out = resolve(outDir, `${stem}-seq${String(n).padStart(2,'0')}-${ms}ms.png`);
+    const r = spawnSync(browserPath, [
+      '--headless',
+      ...(gpu ? ['--use-angle=default'] : ['--disable-gpu']),
+      ...(scale !== 1 ? [`--force-device-scale-factor=${scale}`] : []),
+      '--hide-scrollbars',
+      `--virtual-time-budget=${ms}`,
+      `--window-size=${w},${h}`,
+      `--screenshot=${out}`,
+      url,
+    ], { stdio: 'ignore' });
+    const ok = existsSync(out) && statSync(out).size > 1000;
+    console.log(`${ok ? 'OK  ' : 'FAIL'} seq ${ms}ms -> ${out}`);
+    if (!ok) fails++;
+  }
+  process.exit(fails ? 1 : 0);
+}
 
 let fails = 0;
 for (const size of sizes){

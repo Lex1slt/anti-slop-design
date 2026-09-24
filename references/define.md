@@ -95,6 +95,13 @@ Run the battery before asking for judgment:
 - **The unannounced floor**: visible keyboard focus, reduced motion
   respected, AA contrast. Quality that announces itself is decoration;
   quality that is simply there is the standard.
+- **Evidence pack**: renders at every supported width; a sequence strip of
+  the load choreography (`render.mjs --seq 300,800,1800,4000`); state
+  renders (hover, error, empty) where the piece has them; and a
+  **calibration set** — one baseline render of the same brief produced
+  with a deliberately plain prompt (kept once per project), plus 2–3
+  award-tier references of the same genre (image search). The critic
+  judges against this pack, not in a vacuum.
 - Console clean. Every font weight actually used is verifiably loaded
   (a "declared 400, bundled 600 only" mismatch is a real incident).
 - No horizontal overflow; interactive states reachable.
@@ -171,8 +178,11 @@ Each round:
 1. Snapshot the artifact into `versions/`; render it. The submission is
    the snapshot plus its renders.
 2. Spawn a fresh-context critic (read-only fence, below). Materials: the
-   frozen rubric, the snapshot path, the render paths, the project root
-   for reference checks. Nothing else — no history, no prior notes.
+   frozen rubric, the snapshot path, the render paths, the sequence strip,
+   the calibration set, and the project root for reference checks. Nothing
+   else — no history, no prior notes. The critic reviews in two passes:
+   eyes first (renders and sequence strip only), then the source to locate
+   causes — never the other way around.
 3. The critic returns: a score per rubric item with a one-line reason; the
    biggest gaps against "how a top studio would execute this aesthetic";
    an overall /10; and below 9, blocking issues — located, classified
@@ -186,47 +196,56 @@ Each round:
 Critic prompt (frozen; identical every round):
 
 ```
-You are the last review before this design ships. Hold it to the standard
-of award-winning studio work — the kind that gets featured, not the kind
-that fills portfolios. "Competent for AI" is not a standard; it is the
-problem being audited.
+You receive an evidence pack: the current render(s), a sequence strip of
+the load choreography, and a calibration set — a baseline slop render of
+the same brief plus award-tier references of the same genre.
 
-How to score (full scale, honestly):
+Two passes, in this order:
+
+PASS 1 — EYES ONLY. Look at the renders and the sequence strip. Do not
+open the source yet. Write three lines: what the viewer should FEEL in
+the first three seconds; the single strongest thing here; the first
+thing that cheapens it. Then rank the current design against the
+calibration set (baseline slop, references, current).
+
+PASS 2 — AUDIT. Now read the source — only to verify what you saw and to
+locate causes. Every suspicion from pass 1 gets confirmed or dropped
+with evidence.
+
+Scoring (full scale, honestly):
 - 1–4  broken, or a template with the serial numbers filed off
 - 5–6  clean, correct, forgettable — nothing wrong, nothing chosen
 - 7    professional craft; safe everywhere; forgotten in a minute
 - 8    distinctive and well-made; a senior peer approves
 - 9    exhibition grade: one idea carried perfectly and nothing accidental
-       left in — type rhythm, spacing, hierarchy, cohesion all deliberate.
-       You would sign it.
+       left in. In your ranking it sits at or above the award-tier
+       references. You would sign it.
 - 10   once in a career. Not this.
 
-Non-negotiables while judging:
-- Judge the artifact in front of you. Intent scores nothing; a great idea
-  built to 80% is an 8.
-- Say in one line what the viewer should FEEL in the first three seconds.
-  If the design cannot produce that feeling, that is blocking — mood is a
-  requirement, not garnish.
-- On screens, motion and response are part of the work: expect one
-  choreographed moment and at least one behavior that answers the cursor.
-  Static perfection tops out at 8.
-- Reject the unconsidered default. Any pattern associated with
+Rules:
+- The ranking against the calibration set is the spine of the score.
+- Craft cannot buy originality: flawless but familiar caps at 8. Name the
+  decision a competitor could not produce next week — if there is none,
+  this is not a 9.
+- Motion is part of the work: read the sequence strip as a film. A
+  choreography that arrives alive passes; scattered one-shot effects do
+  not. Static perfection tops out at 8.
+- Reject the unconsidered default: any pattern associated with
   mass-produced AI output (purple gradients, glows, frosted panels,
   matched card trios, emoji icons, boilerplate copy) must either be a
   justified, top-tier choice or be removed — one unconsidered default
   caps the whole review at 7.
 - Read the details: type hierarchy, optical alignment, measure, contrast,
   spacing rhythm, and whether the signature element actually lands.
-- Be severe by default. Vague notes are useless notes: every comment names
-  a place and a change a competent builder could apply verbatim.
-- The device set is frozen. Ask for a new element only by naming which
-  existing one gets cut to pay for it — a demand without a cut is not a
-  finding.
+- Be severe by default. Vague notes are useless notes: every comment
+  names a place and a change a builder could apply verbatim.
+- The device set is frozen. Ask for a new element only by naming the cut
+  that pays for it — a demand without a cut is not a finding.
 - A 9 requires one sentence: what here will still be remembered tomorrow.
-If the overall score is below 9, list what must change — biggest move
-first — each pinned to a location, each writable as an instruction a
-builder can apply without taste. Tag every item BLOCKING, MAJOR, or
-MINOR; the executor clears all of them in one pass.
+
+If overall < 9: blocking issues, biggest structural move first, each
+located, classified BLOCKING / MAJOR / MINOR — written so a builder can
+apply them without taste.
 ```
 
 The "9 means done" threshold lives in this document, never in that prompt.

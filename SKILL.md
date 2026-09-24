@@ -121,16 +121,21 @@ Convergence, not grinding. The score is won at the front — a concept with a
   round 1; changing standards mid-loop restarts the loop explicitly.
 - **Pre-flight on every submission**: render the build first with
   `references/tools/render.mjs` (do not hand-write the invocation —
-  unrendered HTML ships broken images and dead motion), then console
-  clean, fonts truly loaded, every referenced asset on disk, completeness
-  floor holds, no overflow, rubric self-scored, defaults/copy/subtraction
-  passes done, and the unannounced floor: visible keyboard focus, reduced
-  motion respected, AA contrast. The critic is not QA.
-- **Loop**: snapshot into `versions/` + render → a fresh-context critic
-  reads the snapshot, the renders, and anything else in the project
-  (read-only) → returns per-item scores, the biggest gaps, and blocking
-  issues located and written as instructions a builder can apply verbatim →
-  clear BLOCKING / MAJOR / MINOR in one pass.
+  unrendered HTML ships broken images and dead motion), assemble the
+  **evidence pack** (all-width renders, the load-sequence strip, a
+  calibration set: one plain-prompt baseline + award-tier genre
+  references), then console clean, fonts truly loaded, every referenced
+  asset on disk, completeness floor holds, no overflow, rubric
+  self-scored, defaults/copy/subtraction passes done, and the unannounced
+  floor: visible keyboard focus, reduced motion respected, AA contrast.
+  The critic is not QA.
+- **Loop**: snapshot into `versions/` + render + assemble the evidence
+  pack → a fresh-context critic judges **eyes-first** (renders and the
+  load-sequence strip before source), **ranks the design against the
+  calibration set**, then audits the source only to locate causes →
+  returns per-item scores, the biggest gaps, and blocking issues written
+  as instructions a builder can apply verbatim → clear BLOCKING / MAJOR /
+  MINOR in one pass.
 - **Reach into the capability toolbox during Define** — generated images,
   cutouts/keying, super-resolution, 3D, video and motion — proactively,
   whenever the concept calls for something code alone can't produce well;
