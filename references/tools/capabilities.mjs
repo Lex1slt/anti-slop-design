@@ -60,6 +60,15 @@ const capabilities = [
     enable: '安装 realesrgan/upscayl，或 export REPLICATE_API_TOKEN / FAL_KEY',
   },
   {
+    id: 'background-removal',
+    label: '本地 AI 抠图（rembg，任意照片 → 透明 PNG）',
+    reachable: (() => {
+      try { return spawnSync('python', ['-c', 'import rembg'], { stdio: 'ignore' }).status === 0; }
+      catch { return false; }
+    })(),
+    enable: 'pip install "rembg[cpu]"',
+  },
+  {
     id: 'local-chroma-key',
     label: '本地绿幕抠图（ffmpeg chromakey）',
     reachable: ffmpegFilter('chromakey'),
