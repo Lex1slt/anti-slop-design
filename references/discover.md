@@ -16,7 +16,7 @@ Then pick the one most worth solving and write it as a single-sentence
 problem brief.
 ```
 
-- Work from scenes, not feature lists;
+- Diverge over real usage scenarios, not feature lists;
 - The brief — who, where, stuck on what — is the question every direction
   card below has to answer;
 - **The subject is the palette.** A subject's industry, materials, and
@@ -24,6 +24,11 @@ problem brief.
   8-year-olds and a financial dashboard should not share a palette, a
   typeface, or a hero. Build with the subject's real content and its
   world's most characteristic objects, words, and light.
+- **Choose the artifact form deliberately.** The protocol covers web
+  pages, native app screens (iOS/Android), slides, posters/prints, and
+  immersive 3D experiences. If the user named no form, pick the one that
+  best serves the problem brief and write the one-line reason — a default
+  web landing page is not the default answer.
 
 ## 2. The seed roll (entropy from outside the model)
 

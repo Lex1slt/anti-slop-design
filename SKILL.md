@@ -1,6 +1,6 @@
 ---
 name: anti-slop-design
-description: A scope-disciplined, critic-gated design protocol for coding agents — three stages (Discover → Define → Deliver), a device budget, a concept ceiling gate, regression invariants, and three stopping rules. Use whenever the user asks you to "design / beautify / make" any visual artifact (web page, landing page, poster, social card, slide deck, UI), or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
+description: A scope-disciplined, critic-gated design protocol for coding agents — three stages (Discover → Define → Deliver), a device budget, a concept ceiling gate, regression invariants, and three stopping rules. Use whenever the user asks you to "design / beautify / make" any visual artifact (web page, landing page, app screen, poster, social card, slide deck, UI), or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
 ---
 
 # Anti-Slop Design
@@ -91,6 +91,11 @@ Never skip it. Everything downstream inherits its quality.
   geometry among several — curvilinear, diagonal, organic, fragmented.
   The card set must span at least three formal languages, and the wild
   card takes the riskiest one.
+- **Choose the artifact form deliberately.** Web pages, native app
+  screens (iOS/Android), slides, posters/prints, immersive 3D — if the
+  user named no form, pick the one that best serves the problem brief
+  and write the one-line reason; a default web landing page is not the
+  default answer.
 - **Device budget.** List the candidate *devices* — built mechanisms such
   as mounts, numbering systems, boards, magnifiers, seals. Keep at most 5
   (1 signature + 2 supporting + 2 optional), each answering a sentence from

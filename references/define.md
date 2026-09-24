@@ -40,7 +40,10 @@ debugging a single shot, the raw call it wraps is:
   enough budget (8000+).
 
 Framework recipes (the only integration point is a renderable URL or
-file — the protocol doesn't care what produced it):
+file — the protocol doesn't care what produced it). No form named by the
+user? Choose one deliberately — web page, native app screens, slides,
+poster/print, immersive 3D — and record the one-line reason in the score
+log:
 
 | Stack | Get a render |
 | --- | --- |
@@ -50,6 +53,7 @@ file — the protocol doesn't care what produced it):
 | Astro | `astro build` → `dist/index.html` |
 | Slides (slidev / reveal / Marp) | render at the deck's real size, e.g. `--widths 1280x720` |
 | Poster / print | window size = exact deliverable size (A4 at 96dpi ≈ 794×1123) |
+| Native app screens (iOS / Android) | `--widths 393x852` (iPhone 15 pts) or `412x915` (Pixel 8) + `--scale 3` for retina-crisp captures — status bar, home indicator, and platform nav are part of the design |
 | WebGL / immersive (Three.js, R3F) | try `--gpu` and a longer `--vt` (20000+) when a capture comes back dark — some intros animate in real time and block headless rendering |
 
 ## The rubric (written before the loop, then frozen)

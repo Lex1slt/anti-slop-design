@@ -4,7 +4,7 @@
  * Renders an HTML artifact with headless Edge/Chrome at one or more sizes.
  *
  * Usage:
- *   node render.mjs <artifact.html|https://url> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--gpu] [--browser <path>]
+ *   node render.mjs <artifact.html|https://url> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--gpu] [--scale 2] [--browser <path>]
  *
  * --gpu: drop --disable-gpu and force GPU compositing — try it when a
  *        WebGL/canvas-heavy page captures as a dark frame.
@@ -22,6 +22,7 @@ let widths = '1440x900';
 let vt = 4000;
 let browser = '';
 let gpu = false;
+let scale = 1;
 
 for (let i = 0; i < argv.length; i++){
   const a = argv[i];
@@ -29,11 +30,12 @@ for (let i = 0; i < argv.length; i++){
   else if (a === '--vt') vt = argv[++i] ?? vt;
   else if (a === '--browser') browser = argv[++i] ?? browser;
   else if (a === '--gpu') gpu = true;
+  else if (a === '--scale') scale = Math.max(1, parseFloat(argv[++i]) || 1);
   else positional.push(a);
 }
 const [htmlArg, outArg] = positional;
 if (!htmlArg || !outArg){
-  console.error('usage: node render.mjs <artifact.html|https://url> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--browser <path>]');
+  console.error('usage: node render.mjs <artifact.html|https://url> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--gpu] [--scale 2] [--browser <path>]');
   process.exit(2);
 }
 const isUrl = /^https?:\/\//.test(htmlArg);
@@ -68,10 +70,13 @@ let fails = 0;
 for (const size of sizes){
   const [w, h] = size.split('x');
   if (!w || !h){ console.error(`bad size "${size}" (use WxH, e.g. 1440x900)`); fails++; continue; }
-  const out = resolve(outDir, `${stem}-${w}x${h}.png`);
+  const out = resolve(outDir, scale !== 1
+    ? `${stem}-${w}x${h}@${scale}x.png`
+    : `${stem}-${w}x${h}.png`);
   const r = spawnSync(browserPath, [
     '--headless',
     ...(gpu ? ['--use-angle=default'] : ['--disable-gpu']),
+    ...(scale !== 1 ? [`--force-device-scale-factor=${scale}`] : []),
     '--hide-scrollbars',
     `--virtual-time-budget=${vt}`,
     `--window-size=${w},${h}`,
