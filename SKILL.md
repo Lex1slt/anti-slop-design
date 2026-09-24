@@ -1,9 +1,9 @@
 ---
-name: world-class-designer
-description: A three-stage process (Discover → Define → Deliver) that turns AI into a world-class designer — stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI. Use whenever the user asks you to "design / beautify / make" any visual artifact, or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
+name: anti-slop-design
+description: A three-stage protocol (Discover → Define → Deliver) that forces AI out of its default design taste — stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI. Use whenever the user asks you to "design / beautify / make" any visual artifact, or complains that output looks "too AI, too generic, like a template" — even if they never say the word "design".
 ---
 
-# World-Class Designer — three stages that turn AI into a world-class designer
+# Anti-Slop Design — three stages that force AI out of its default taste
 
 ## Why
 

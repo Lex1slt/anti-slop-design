@@ -1,8 +1,8 @@
-# world-class-designer
+# anti-slop-design
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-A three-stage process — **Discover → Define → Deliver** — that turns AI into a world-class designer: stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI.
+A three-stage protocol — **Discover → Define → Deliver** — that forces AI out of its default design taste: stunning, un-generic web pages, landing pages, posters, social cards, slides, and UI. It doesn't promise "world-class" — it forbids slop.
 
 An agent skill built to fight the "average" of AI-generated design — purple gradients, rounded-card grids, Inter, filler copy. Works with any AI coding agent that supports the SKILL.md convention.
 
@@ -18,27 +18,27 @@ When an LLM designs, every decision picks the solution "most likely to please ev
 
 Copy the whole folder into your agent's skills directory (the `~/.claude/skills/` layout below is the convention most agents follow):
 
-- macOS / Linux: `~/.claude/skills/world-class-designer/`
-- Windows: `%USERPROFILE%\.claude\skills\world-class-designer\`
+- macOS / Linux: `~/.claude/skills/anti-slop-design/`
+- Windows: `%USERPROFILE%\.claude\skills\anti-slop-design\`
 
 Or paste this at your agent for a one-line install:
 
-> Help me install world-class-designer. Clone https://github.com/Lex1slt/world-class-designer into ~/.claude/skills/world-class-designer, and once installed verify that SKILL.md and references/ exist.
+> Help me install anti-slop-design. Clone https://github.com/Lex1slt/anti-slop-design into ~/.claude/skills/anti-slop-design, and once installed verify that SKILL.md and references/ exist.
 
 ## Trigger it
 
 Just say "design/make a landing page, poster, card, slide deck" or "this looks too AI, redo it" — the skill loads automatically.
 
-Or invoke it explicitly — the format is `/world-class-designer, <request>, <reviewer model>`:
+Or invoke it explicitly — the format is `/anti-slop-design, <request>, <reviewer model>`:
 
-> /world-class-designer, a landing page for a specialty coffee brand, review subagent on your strongest design model
+> /anti-slop-design, a landing page for a specialty coffee brand, review subagent on your strongest design model
 
 The reviewer model is optional — omit it and the agent picks the strongest design model available.
 
 ## Layout
 
 ```
-world-class-designer/
+anti-slop-design/
 ├── SKILL.md              # core ideas, three-stage overview, hard rules
 ├── references/
 │   ├── discover.md       # problem framing, seed strings, ambitious briefs, intent-first, direction cards
