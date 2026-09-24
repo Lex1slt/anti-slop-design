@@ -4,7 +4,10 @@
  * Renders an HTML artifact with headless Edge/Chrome at one or more sizes.
  *
  * Usage:
- *   node render.mjs <artifact.html> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--browser <path>]
+ *   node render.mjs <artifact.html|https://url> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--gpu] [--browser <path>]
+ *
+ * --gpu: drop --disable-gpu and force GPU compositing — try it when a
+ *        WebGL/canvas-heavy page captures as a dark frame.
  *
  * Output: <outDir>/<stem>-<W>x<H>.png — deterministic names, ready for the
  * score log. Exit code 0 iff every size produced a non-empty screenshot.
@@ -18,12 +21,14 @@ const positional = [];
 let widths = '1440x900';
 let vt = 4000;
 let browser = '';
+let gpu = false;
 
 for (let i = 0; i < argv.length; i++){
   const a = argv[i];
   if (a === '--widths') widths = argv[++i] ?? widths;
   else if (a === '--vt') vt = argv[++i] ?? vt;
   else if (a === '--browser') browser = argv[++i] ?? browser;
+  else if (a === '--gpu') gpu = true;
   else positional.push(a);
 }
 const [htmlArg, outArg] = positional;
@@ -65,7 +70,9 @@ for (const size of sizes){
   if (!w || !h){ console.error(`bad size "${size}" (use WxH, e.g. 1440x900)`); fails++; continue; }
   const out = resolve(outDir, `${stem}-${w}x${h}.png`);
   const r = spawnSync(browserPath, [
-    '--headless', '--disable-gpu', '--hide-scrollbars',
+    '--headless',
+    ...(gpu ? ['--use-angle=default'] : ['--disable-gpu']),
+    '--hide-scrollbars',
     `--virtual-time-budget=${vt}`,
     `--window-size=${w},${h}`,
     `--screenshot=${out}`,

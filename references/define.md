@@ -39,6 +39,19 @@ debugging a single shot, the raw call it wraps is:
   passes URLs through. SPA first paint is JS-driven, so give `--vt`
   enough budget (8000+).
 
+Framework recipes (the only integration point is a renderable URL or
+file — the protocol doesn't care what produced it):
+
+| Stack | Get a render |
+| --- | --- |
+| Vue / React / Svelte (Vite) | `vite build` with `base: './'` → render `dist/index.html`; or render the dev URL directly |
+| Next.js (static export) | `next build` with `output: 'export'` → `out/index.html` |
+| Next.js (SSR) | `next dev` / `next start` → render `http://localhost:3000` |
+| Astro | `astro build` → `dist/index.html` |
+| Slides (slidev / reveal / Marp) | render at the deck's real size, e.g. `--widths 1280x720` |
+| Poster / print | window size = exact deliverable size (A4 at 96dpi ≈ 794×1123) |
+| WebGL / immersive (Three.js, R3F) | try `--gpu` and a longer `--vt` (20000+) when a capture comes back dark — some intros animate in real time and block headless rendering |
+
 ## The rubric (written before the loop, then frozen)
 
 6–9 items, each independently checkable. "Beautiful" and "impressive" are

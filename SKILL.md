@@ -151,8 +151,14 @@ Convergence, not grinding. The score is won at the front — a concept with a
 
 ## Tools — call them, don't re-invent them
 
+The protocol is rendering-agnostic: its only integration point with any
+stack (Vue, React, Svelte, Astro, Next, plain HTML, slides, posters) is **a
+renderable URL or file** — framework recipes live in
+`references/define.md`.
+
 - `references/tools/render.mjs` — the renderer for every round and for
-  delivery (all widths, deterministic file names);
+  delivery (all widths, deterministic file names, `--gpu` for WebGL-heavy
+  pages);
 - The **capability toolbox** (`references/define.md`): generated images,
   cutouts and keying, super-resolution, 3D, video and motion — reach for
   these proactively whenever code alone would look worse;
