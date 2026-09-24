@@ -124,3 +124,5 @@ Do this before Define, and record it in the design notes:
 4. **Freeze the list** once the concept gate passes. From then on: one in, one out — any addition is paid for by a removal, and the trade is recorded. Critics demanding "more" are answered with "what gets cut?".
 
 The budget is why a 9 is reachable: five devices executed flawlessly is a showpiece; fifteen devices is a permanent defect surface no number of rounds can polish.
+
+**The budget counts built mechanisms only — never content.** Sections, photographs, copy blocks, and animations the brief requires are content: they are never counted against the budget and never cut to satisfy it. If budget pressure conflicts with content, cut decoration, not information. (A documented failure: a run misread "cut a device" as "cut the product photography" and shipped a hero without its hero image.)

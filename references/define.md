@@ -40,8 +40,11 @@ Edge headless screenshot (silent, windowless, quiet-friendly):
 The #1 reason review runs long: known failure modes are left for the critic to discover, and every defect class burns a full round. **The critic is not QA.** Before the first submission — and before every submission — the executor runs the whole known-checks battery itself:
 
 Deterministic, zero-tolerance (script what you can):
+- **Render the current build first** (desktop full + hero + the widths you claim support). If you have not rendered it, you have not built it — unrendered HTML ships with broken images, dead animations, and missing sections and nobody notices.
 - Browser console: zero errors; every font weight actually used is verifiably loaded (e.g. `document.fonts` check — "declared 400, loaded only 600/800" is a real incident);
-- Every image/link resolves; no horizontal overflow; every interactive state reachable; render one screenshot and self-diff it against the design intent.
+- **Asset integrity**: every `src`/`href` in the artifact resolves to a file on disk (no 404 images, no missing fonts); animations/keyframes from the previous accepted version are present unless removal was critic-ordered;
+- **Completeness floor**: every section, image, and copy block the last accepted version had is still present, unless the critic explicitly ordered its removal;
+- Every image/link resolves; no horizontal overflow; every interactive state reachable; self-diff the render against the previous accepted render and against your design intent.
 
 Checklist, honestly written down:
 - Rubric self-scored item by item, with one-line justifications (the gap between self-score and critic score is itself a signal);
@@ -58,7 +61,9 @@ The first critique happens when the direction is fixed but the piece is only ~30
 
 This gate is where quality is actually won. A 25-round loop is almost always the symptom of grinding an 8-ceiling concept — the rounds cannot fix what only a different concept can.
 
-The gate also **freezes the device list** (from Discover's budget of ≤5): from here on, one in, one out. Any new element must be paid for by removing one, and the trade is recorded in the score log. When a critic demands a new move, the answer is "what gets cut?" — never a bare addition. Scope may shrink mid-loop; it may never quietly grow.
+The gate also **freezes the device list** (from Discover's budget of ≤5). From here on, one in, one out: any new element must be paid for by removing one, and the trade is recorded in the score log. When a critic demands a new move, the answer is "what gets cut?" — never a bare addition. Scope may shrink mid-loop; it may never quietly grow.
+
+**The device budget counts built mechanisms only — never content.** Recurring constructs (mounts, numbering systems, magnifiers, rulers, seals) are devices. Sections, photographs, copy blocks, and animations the brief requires are **content**: they are never counted against the budget and never cut to satisfy it. If budget pressure conflicts with content, cut decoration, not information — misreading "cut a device" as "cut the product photography" is a documented failure (a run shipped a page missing its own hero image).
 
 ## Rubric freeze
 
@@ -86,8 +91,9 @@ Three ways the loop ends — and only these:
 
 Each round:
 
-1. **Snapshot the current artifact into `versions/`** (e.g. `versions/r3-hero.html`) — every reviewed version is kept, nothing is overwritten. This snapshot IS the review submission; rendering is not part of the loop.
-2. **Spawn a fresh-context subagent** (the Agent tool). Its prompt contains only: the full rubric, the snapshot's file path, the output format, and the read-only fence. **No past scores or past critiques** — that prevents anchoring and people-pleasing. The critic reads the artifact's source and judges that.
+1. **Snapshot the current artifact into `versions/`** (e.g. `versions/r3-hero.html`) — every reviewed version is kept, nothing is overwritten. **Render the snapshot** (desktop full + hero + every width you claim to support) into `shots/`. The submission is **the snapshot plus its renders** — the source is the record, the render is the evidence.
+2. **Continue from the latest accepted version.** Each round edits the last accepted snapshot — never rewrite from scratch, never start from an empty file, and the new version must be at least as complete as the one it replaces (removals only when the critic ordered them).
+3. **Spawn a fresh-context subagent** (the Agent tool). Its prompt contains only: the full rubric, the snapshot's file path, the render paths, **the project root (it may Read anything under it — assets, fonts, styles, notes, earlier versions — to verify references and completeness)**, the output format, and the read-only fence. **No past scores or past critiques** — that prevents anchoring and people-pleasing.
 3. The critic returns four things: a 1–10 score per rubric item + a one-sentence justification; the **biggest gaps** between "how a top design studio would execute this aesthetic" and the current draft; an overall score (out of 10); and when the total is < 9, mandatory blocking issues — each with its exact location (in the source or on the page), written to **pseudo-code level**, directly actionable.
 4. Fix substantively per the blocking issues (layout / color / information hierarchy — not copy tweaks), in one pass.
 5. Back to step 1 and apply the **stopping rules** (≥9 / plateau / 8-round cap — see above). The threshold never goes into the critic prompt — its scoring must stay objective — and the critic prompt stays identical every round.
@@ -166,9 +172,9 @@ Note: "done means 9+" is the outer process's stop condition — **never** put it
 | Grinding past a plateau | 20 rounds, same score, scope quietly doubled | Structural-or-stop; plateau rule; 8-round cap |
 | Stopping early because rounds piled up | Shipping a 7/10 | The loop ends only by the three stopping rules — and when it ends below 9, the residual report says so |
 
-### The critic is advisory-only
+### The critic is advisory-only — but project-aware
 
-**A critic that starts fixing stops being a critic.** Fence every critic subagent to read-only in its brief: its only tool action is reading the artifact and screenshots; no edits, no file creation, no commands, no rendered crops or zoomed views — it judges the artifact as given. Every finding goes into the verdict text as an executable instruction for the executor. The premium model's job is judgment, not labor; the cheap model's job is labor, not judgment.
+**A critic that starts fixing stops being a critic.** Fence every critic subagent in its brief: it may **Read anything in the project** (artifact, assets, fonts, styles, design notes, earlier versions) and **view the provided renders** — that is how it verifies references, completeness, and honesty (a caption is only checkable against the real asset). But it must **not** edit, create, or delete files, must not run commands, and must not render images itself (the executor's renders are the evidence). Every finding goes into the verdict text as an executable instruction for the executor. The premium model's job is judgment, not labor; the cheap model's job is labor, not judgment.
 
 ### Triage — one round absorbs every class of issue
 
