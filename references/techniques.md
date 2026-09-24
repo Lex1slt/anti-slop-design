@@ -198,3 +198,6 @@ enhancement, prefers-reduced-motion.
 - **性能与可访问性**是手法的一部分：Scrollytelling/WebGL 必须回答
   移动端、`prefers-reduced-motion` 与降级路径，否则评审按 rubric 第 7
   条扣分。
+
+**深度版**：十一种签名级手法（含实现模式与失败模式）见
+`signature-techniques.md`；滚动叙事范式见 `scrollytelling.md`。

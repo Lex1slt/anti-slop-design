@@ -62,6 +62,9 @@ the stage starts:
 - `references/scrollytelling.md` — the scroll-as-timeline paradigm: fixed
   stage, continuous functions, shared elements, camera model — read this
   when the brief involves scroll-driven narrative
+- `references/signature-techniques.md` — 11 signature techniques with
+  implementation depth (HTML-in-Canvas, physics, motion narrative,
+  SVG masks, barely-there UI…) and a selection matrix by project type
 
 ## Stage 1 — Discover
 
