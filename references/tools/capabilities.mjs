@@ -60,6 +60,12 @@ const capabilities = [
     enable: '安装 realesrgan/upscayl，或 export REPLICATE_API_TOKEN / FAL_KEY',
   },
   {
+    id: 'blender-headless',
+    label: 'Blender 5.2 无头建模/渲染（bpy，本地离线）',
+    reachable: existsSync('D:/Program Files/Blender Foundation/blender.exe'),
+    enable: 'winget install BlenderFoundation.Blender',
+  },
+  {
     id: 'background-removal',
     label: '本地 AI 抠图（rembg，任意照片 → 透明 PNG）',
     reachable: (() => {

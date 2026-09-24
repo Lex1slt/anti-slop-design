@@ -499,7 +499,9 @@ edges at 2× zoom. In-situ "life" photography is the other legitimate mode
    A matching real asset beats a generated one; flowers, furniture,
    instruments all exist.
 3. **Local Blender (headless bpy)** — scripted modeling and rendering,
-   fully offline, after `winget install BlenderFoundation.Blender`. The
+   fully offline. Installed at
+   `D:/Program Files/Blender Foundation/blender.exe` (5.2.1 LTS): run
+   `blender --background --python-expr "…"` or `--python script.py`. The
    heavy hammer for custom assets.
 4. **AI text-to-3D / image-to-3D APIs** — Meshy / Tripo class, needs a
    key. Image-to-3D from a product photo is the killer use when it fits.
