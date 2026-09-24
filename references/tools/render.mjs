@@ -28,11 +28,12 @@ for (let i = 0; i < argv.length; i++){
 }
 const [htmlArg, outArg] = positional;
 if (!htmlArg || !outArg){
-  console.error('usage: node render.mjs <artifact.html> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--browser <path>]');
+  console.error('usage: node render.mjs <artifact.html|https://url> <outDir> [--widths 1440x900,390x844] [--vt 4000] [--browser <path>]');
   process.exit(2);
 }
-const html = resolve(htmlArg);
-if (!existsSync(html)){
+const isUrl = /^https?:\/\//.test(htmlArg);
+const html = isUrl ? htmlArg : resolve(htmlArg);
+if (!isUrl && !existsSync(html)){
   console.error(`artifact not found: ${html}`);
   process.exit(2);
 }
@@ -52,8 +53,10 @@ if (!browserPath){
   process.exit(2);
 }
 
-const url = 'file:///' + html.replace(/\\/g, '/').replace(/^\/+/, '');
-const stem = basename(html).replace(/\.[^.]+$/, '');
+const url = isUrl ? html : 'file:///' + html.replace(/\\/g, '/').replace(/^\/+/, '');
+const stem = isUrl
+  ? (new URL(html).pathname.split('/').filter(Boolean).pop() || 'page').replace(/\.[^.]+$/, '')
+  : basename(html).replace(/\.[^.]+$/, '');
 const sizes = widths.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
 
 let fails = 0;
