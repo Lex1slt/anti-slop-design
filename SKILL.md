@@ -69,6 +69,9 @@ the stage starts:
 - `references/signature-techniques.md` — 11 signature techniques with
   implementation depth (HTML-in-Canvas, physics, motion narrative,
   SVG masks, barely-there UI…) and a selection matrix by project type
+- `references/craft.md` — the craft cookbook: easing curves, typography
+  craft, colour discipline, composition breaks, texture layers — the
+  vocabulary that turns "clean" into "striking"
 
 ## Stage 0 — Align
 
@@ -171,7 +174,8 @@ Convergence, not grinding. The score is won at the front — a concept with a
   jump, density flip, art-language mutation — declared in the score log
   before building (what jumps, what pays for it). Two consecutive
   FIX-only rounds are forbidden below 9: detail rounds never move the
-  needle, only leaps do.
+  needle, only leaps do. Pull the boldest move from
+  `references/craft.md` if the menu feels thin.
 - **Reach into the capability toolbox during Define** — generated images,
   cutouts/keying, super-resolution, 3D, video and motion — proactively,
   whenever the concept calls for something code alone can't produce well;
@@ -234,3 +238,9 @@ renderable URL or file** — framework recipes live in
    asks permission to stop.
 8. Resume from the last accepted snapshot; never rewrite from scratch; the
    completeness floor always holds.
+9. **Every project contains at least one visual decision that a committee
+   would reject.** A compositional break, a palette that violates the
+   category, a scale that makes the viewer stop. If the design could
+   survive a committee review unchanged, it has not gone far enough —
+   push the boldest element further, or introduce the missing visual
+   risk. See `references/craft.md` for the vocabulary.
