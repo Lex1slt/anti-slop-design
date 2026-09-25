@@ -33,6 +33,12 @@ Subtraction has one boundary — comprehension. If a graphic or icon stops
 the user from understanding, add the text label or hover hint back. "What
 does the user lose?" vetoes everything above.
 
+Subtraction also has a **counterweight — density check**: after removing,
+render and scan every 100vh scroll segment. If any stretch >50vh has no
+visual event (transition, reveal, composition shift, interaction), the
+subtraction went too far. Compress section heights or add content — not
+decoration.
+
 ## 2. Defaults on trial — the double pass (visual and copy, separately)
 
 The rubric's item 5 points here. The list below names habits, not banned
