@@ -63,6 +63,7 @@ if (!browserPath){
 }
 
 const url = isUrl ? html : 'file:///' + html.replace(/\\/g, '/').replace(/^\/+/, '');
+if (query) url += (url.includes('?') ? '&' : '?') + query;
 const stem = isUrl
   ? (new URL(html).pathname.split('/').filter(Boolean).pop() || 'page').replace(/\.[^.]+$/, '')
   : basename(html).replace(/\.[^.]+$/, '');
