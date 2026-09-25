@@ -249,6 +249,28 @@ without moving the needle. On a plateau the next round must be a LEAP;
 if no bold move fits the concept anymore, that is the plateau speaking:
 stop and deliver.
 
+**A LEAP must be visible at arm's length.** Hold the previous and current
+screenshots side by side at arm's length: if you can't tell which is
+which, the LEAP failed — redo it bolder. Concretely: a LEAP changes at
+least one of these, measurably:
+
+- Layout spine (vertical → horizontal, single column → asymmetric split,
+  document flow → full-bleed stage, etc.)
+- Colour system (invert light/dark, swap accent hue, duotone, strip to
+  monochrome)
+- Type scale (display size doubles or halves; switch the narrative
+  typeface family; type becomes the hero graphic instead of a label)
+- Device set (remove a device and replace with a bolder one)
+- Composition geometry (introduce curves/diagonals/overlap where there
+  were only axis-aligned rectangles)
+- Density (flip a full section maximalist ↔ radical emptiness)
+
+**What does NOT count as a LEAP:**
+- Spacing adjustments, font-loading fixes, copy rewrites
+- Colour hue shifts within the same palette
+- Adding hover states or micro-interactions
+- Any change the user would need a side-by-side comparison to notice
+
 **The bold-move menu** — one per LEAP round, mix classes across rounds:
 
 | Class | Example moves |
