@@ -1,7 +1,7 @@
-# Grill — 澄清意图的访谈协议（Stage 0）
+# Align — 澄清意图的访谈协议（Stage 0）
 
-目的：在 Discover 之前，用多轮 QA 把"用户想要什么"从模糊的中文短句
-变成一份可执行的设计 brief。参考 grilling skill 的设计树方法。
+目的：在 Discover 之前，用多轮 QA 把"用户想要什么"从一句模糊的中文短句
+变成一份可执行的设计 brief——让 agent 和用户在动手之前达成共识。
 
 ## 何时跳过这一步
 

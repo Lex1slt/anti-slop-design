@@ -40,7 +40,7 @@ gate, and the bar never moves mid-loop.
 
 | Stage | Goal | Share | What happens |
 | --- | --- | --- | --- |
-| 0. Grill | 澄清意图，产出书面 brief | 视交互深度 | 设计树式多轮 QA（每轮前沿问题 + 推荐答案）→ PROJECT-BRIEF.md →（可选）方向卡雏形给用户挑选 |
+| 0. Align | 澄清意图，产出书面 brief | 视交互深度 | 设计树式多轮 QA（每轮前沿问题 + 推荐答案）→ PROJECT-BRIEF.md →（可选）方向卡雏形给用户挑选 |
 | 1. Discover | Aim at a real problem, then open the space | ~15% | problem brief → seed roll / named variation axes → intent first → 3–4 direction cards + 1 wild card |
 | 2. Define | Close the distance to 9/10 | ~70% | concept ceiling gate → frozen rubric + fresh-context critic loop → device one-in-one-out → assets only as the concept needs |
 | 3. Deliver | Restraint | ~15% | subtraction pass → defaults double pass → hand-written load-bearing copy |
@@ -48,7 +48,7 @@ gate, and the bar never moves mid-loop.
 Templates, checklists, and commands live in `references/` and are read when
 the stage starts:
 
-- `references/grill.md` — Stage 0 interview protocol: rounds of frontier
+- `references/align.md` — Stage 0 alignment protocol: rounds of frontier
   questions with recommended answers, the brief document, the artifact-form
   question, and the reviewer-model question
 - `references/discover.md` — problem framing, the seed roll, ambitious
@@ -70,9 +70,9 @@ the stage starts:
   implementation depth (HTML-in-Canvas, physics, motion narrative,
   SVG masks, barely-there UI…) and a selection matrix by project type
 
-## Stage 0 — Grill
+## Stage 0 — Align
 
-- **Intent before prompts** → 意向访谈（grill.md）：设计树式多轮 QA，
+- **Intent before prompts** → 意向访谈（align.md）：设计树式多轮 QA，
   每轮前沿问题 + 推荐答案，产出 PROJECT-BRIEF.md；可选地给用户看
   3–4 张简化方向卡先排除明显不想要的。
 
