@@ -58,6 +58,9 @@ the stage starts:
   its prompt, triage, model split, asset rules, rendering
 - `references/deliver.md` — subtraction, defaults on trial, hand-written
   copy, the delivery checklist
+- `references/awwwards.md` — the Awwwards four-dimension benchmark
+  (Design 40% / Usability 30% / Creativity 20% / Content 10%) and the
+  three-level learning flow that feeds the taste library
 - `references/taste-library.md` — concrete moves distilled from studied
   sites, each with when-to-use and known failure modes
 - `references/techniques.md` — the full technique map (scroll narrative,
